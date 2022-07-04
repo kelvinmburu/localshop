@@ -10,4 +10,6 @@ urlpatterns = [
     path('links/', views.LinksPageView, name='links'), # simple view
     path('getcust/',views.Customers, name='customers'), # simple view
     path('apitest/',views.CalcTest), # for REST API test
+    path('newadmin/',views.adminapi,name='admin'), # for REST API
+    path('newadmin/<int:id>',views.adminapi,name='admin'), # for REST API
 ]
