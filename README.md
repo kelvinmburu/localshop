@@ -1,12 +1,8 @@
-# localshop
+# Localshop
 An inventory app that can help in stock taking, generation and visualization of weekly, monthly and annual reports.
 
 # Live Link
   
-
-# Localshop
-An inventory app that can help in stock taking, generation and visualization of weekly, monthly and annual reports.
-
 # Django Admin Login
 To access the admin dashboard, follow the instructions below:
 
