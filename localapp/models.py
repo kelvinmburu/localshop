@@ -12,14 +12,14 @@ STATUS = (
 # admin, clerk , products, store , reports,orders, defectivegoods
 
 class Admin(models.Model):
-    name = models.CharField(max_length=20)
+    username = models.CharField(max_length=20)
     email = models.EmailField(max_length=20)
-    
-    # password = models.CharField(max_length=20)
+    password = models.CharField(max_length=20)
 
 class Clerk(models.Model):
     name = models.CharField(max_length=20)
     email = models.EmailField(max_length=20)
+    password = models.CharField(max_length=20)
 
 class Product(models.Model):
     CATEGORY = (
@@ -32,6 +32,7 @@ class Product(models.Model):
     buying_price = models.IntegerField()
     selling_price = models.IntegerField()
     expiry_date = models.DateTimeField()
+    
     # defective = models.ForeignKey('defectivegood', on_delete=models.DO_NOTHING,null=True)
     # Ask whether it should be interger or not
 
@@ -39,13 +40,14 @@ class Order(models.Model):
     date = models.DateField(auto_now_add=True)
     ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
-
-class Store(models.Model):
-    name = models.CharField(max_length=20)
-    quantity = models.IntegerField()
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    admin = models.ForeignKey(Admin, on_delete=models.DO_NOTHING)
     clerk = models.ForeignKey(Clerk, on_delete=models.DO_NOTHING)
+
+# class Store(models.Model):
+#     name = models.CharField(max_length=20)
+#     quantity = models.IntegerField()
+#     product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
+#     admin = models.ForeignKey(Admin, on_delete=models.DO_NOTHING)
+#     clerk = models.ForeignKey(Clerk, on_delete=models.DO_NOTHING)
 
 class defectivegood(models.Model):
     name = models.CharField(max_length=20)
