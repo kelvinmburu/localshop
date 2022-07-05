@@ -13,16 +13,50 @@
 
     </nav> -->
     <h3>Defective Goods</h3>
+
+    <div class="container" id="defective-container">
+        <h5>Add Defective Good</h5>
+        <div class="product_container">
+          <input type="text" id="product" Placeholder="Product Name ..." #title required>
+        </div><br>
+        <div class="quantity_container">
+            <input type="text" id="quantity" Placeholder="Quantity ..."  #quantity required/>
+          </div>
+          <br>
+          <div class="store_container">
+            <input type="text" id="store" Placeholder="Store ..."  #quantity required/>
+          </div>
+          <br>
+        <div class="category">
+            <!-- <input type="text" id="cat" Placeholder="Choose category ..."  #cat required/> -->
+            <label for="category">Choose a category:</label>
+
+            <select name="cat" id="cat">
+            <option value="Electronics">Electronics</option>
+            <option value="food">food</option>
+            <option value="Kitchen ware">Kitchen ware</option>
+            
+            </select>
+          
+        </div>
+          <br>
+        
+        <button class="submit_btn" id="submit-defective" >
+          Add 
+        </button>
+      </div>
+      
     <div class="container">
         <div class="defective mt-5" id="">
          
             <table class="table" id="defective-table">
                 <thead class="thead" id="defective-thead">
                     <th>Product Name</th>
-                    <th>Category</th>
+                    
                    
                     <th>Quantity</th>
                     <th>Store</th>
+                    <th>Category</th>
                     
                 </thead>
               
