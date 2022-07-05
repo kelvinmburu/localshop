@@ -21,11 +21,11 @@ class AdminSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
-        model =Product
-        fields = ['name','quantity','category']
+        model = Order
+        fields = '__all__'
 
 
 class DefectiveGoodsSerializer(serializers.ModelSerializer):
     class Meta:
-        model =Product
-        fields = ['name','quantity','category']
+        model = Defectivegood
+        fields = '__all__'
