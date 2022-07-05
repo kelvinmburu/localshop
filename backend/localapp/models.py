@@ -22,26 +22,33 @@ class Clerk(models.Model):
     email = models.EmailField(max_length=20)
     password = models.CharField(max_length=20)
 
+
+
 class Product(models.Model):
     CATEGORY = (
     ('1','electronics'),('2','foods'),('3','detergents'),('4','kitchen-ware'),('5','toys')
 )
     product_name = models.CharField(max_length=20)
     category = models.CharField(max_length=20,choices=CATEGORY,null=True)
-    quantity = models.ForeignKey('Order',on_delete=models.CASCADE)
+    quantity = models.IntegerField()
     status = models.CharField(max_length=20,choices=STATUS,null=True)
     buying_price = models.IntegerField()
     selling_price = models.IntegerField()
     expiry_date = models.DateTimeField()
-    
+    # ProductId =models.AutoField(primary_key=True)
     # defective = models.ForeignKey('defectivegood', on_delete=models.DO_NOTHING,null=True)
     # Ask whether it should be interger or not
 
 class Order(models.Model):
+    CATEGORY = (
+    ('1','electronics'),('2','foods'),('3','detergents'),('4','kitchen-ware'),('5','toys')
+    )
+ 
+    category = models.CharField(max_length=20,choices=CATEGORY,null=True)
     date = models.DateField(auto_now_add=True)
-    ordered_product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    ordered_product = models.CharField(max_length=20)
     quantity = models.IntegerField()
-    clerk = models.ForeignKey(Clerk, on_delete=models.DO_NOTHING)
+    # clerk = models.ForeignKey(Clerk, on_delete=models.DO_NOTHING)
 
 # class Store(models.Model):
 #     name = models.CharField(max_length=20)
@@ -50,11 +57,16 @@ class Order(models.Model):
 #     admin = models.ForeignKey(Admin, on_delete=models.DO_NOTHING)
 #     clerk = models.ForeignKey(Clerk, on_delete=models.DO_NOTHING)
 
-class defectivegood(models.Model):
+class Defectivegood(models.Model):
+    CATEGORY = (
+    ('1','electronics'),('2','foods'),('3','detergents'),('4','kitchen-ware'),('5','toys')
+    )
+ 
+    category = models.CharField(max_length=20,choices=CATEGORY,null=True)
     name = models.CharField(max_length=20)
     quantity = models.IntegerField()
-    product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
-    clerk = models.ForeignKey(Clerk, on_delete=models.DO_NOTHING)
+    # product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
+    # clerk = models.ForeignKey(Clerk, on_delete=models.DO_NOTHING)
     
 
 
