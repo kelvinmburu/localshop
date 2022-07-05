@@ -1,1 +1,86 @@
-<p>products works!</p>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+</head>
+
+<body>
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn" style="background-color: #219EBC;"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <header>Products</header>
+    <a href="#" class="active">
+      <i class="fas fa-qrcode"></i>
+      <span>Dashboard</span>
+    </a>
+    <a href="#">
+      <i class="fas fa-exchange-alt"></i>
+      <span>Orders</span>
+    </a>
+    <a href="#">
+      <i class="fas fa-warehouse"></i>
+      <span>Stores</span>
+    </a>
+    <a href="#">
+      <i class="fas fa-sign-out-alt"></i>
+      <span>Logout</span>
+    </a>
+  </div>
+  <div>
+    <h2 class="text-center fw-bold">Products</h2>
+  </div>
+  <div class="container" style="border:1px solid #cecece;">
+    <div class="d-grid gap-2 col-6 mx-auto btn-group d-flex justify-content-evenly">
+      <button type="button" class="btn btn-lg">Add Product</button>
+      <br>
+      <button type="button" class="btn btn-lg">Request</button>
+    </div>
+    <br>
+    <h2 class="fw-bold" style="margin-top: 35px;">All Products</h2>
+    <hr class="bg-dark border-1 border-top border-dark">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Name:</h5>
+        <p class="card-text">Added by:</p>
+        <a href="#" class="btn" style="background-color: #023047; color: #fff;">View</a>
+      </div>
+    </div>
+    <br>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">Name:</h5>
+        <p class="card-text">Added by:</p>
+        <a href="#" class="btn" style="background-color: #023047; color: #fff;">View</a>
+      </div>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+      <nav aria-label="Page navigation example" class="justify-content-center mx-auto">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+    <br>
+  </div>
+</body>
+
+</html>
