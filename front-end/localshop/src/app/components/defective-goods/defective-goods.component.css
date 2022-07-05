@@ -4,6 +4,24 @@
     font-family: 'Poppins', sans-serif;
     
 }
+
+#defective-container{
+    border: 1px solid #c5c5c5;
+    align-items: start;
+}
+#defective-container input{
+    width:30%;
+    padding:.4vw 1vw .4vw 1vw;
+    
+}
+#submit-defective{
+    background-color:#023047;
+    padding:.8vw .8vw .8vw .8vw;
+    color: #fff;
+    border:none;
+    border-radius:2%;
+}
+
 /* defective-table */
 #defective-thead{
     background-color:#023047;
