@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "cli": {
-    "analytics": "7ece0cb1-496f-4ad4-88bc-8ed770d71412"
+    "analytics": "1a1cfb9f-b2c1-43f0-9b24-ace1813a5e8b"
   },
   "version": 1,
   "newProjectRoot": "projects",
@@ -104,6 +104,5 @@
         }
       }
     }
-  },
-  "defaultProject": "localshop"
+  }
 }
