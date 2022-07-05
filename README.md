@@ -19,6 +19,7 @@ To access the admin dashboard, follow the instructions below:
 ![GitHub Top Language](https://img.shields.io/github/languages/top/kelvinmburu/localshop)
 ![GitHub Language Count](https://img.shields.io/github/languages/count/kelvinmburu/localshop)
 ![GitHub Commit Activity](https://img.shields.io/github/commit-activity/w/kelvinmburu/localshop)
+![GitHub Contributors](https://img.shields.io/github/contributors/kelvinmburu/localshop)
 
 ## Contribution
 - [Lona Wanjiku](https://github.com/Lorna-Mwaura) 📖
