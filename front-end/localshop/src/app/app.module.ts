@@ -13,11 +13,12 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { DefectiveGoodsComponent } from './components/defective-goods/defective-goods.component';
 import { ProductsComponent } from './components/products/products.component';
+import { StoresComponent } from './components/stores/stores.component'; 
 
 import {SharedService} from './services/shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { StoresComponent } from './components/stores/stores.component';
+
 
 
 @NgModule({

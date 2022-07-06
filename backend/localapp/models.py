@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 STATUS = (
     ('1','Paid'),
     ('2','Unpaid'),
-    
+
 )
 # superuser ===> invite to the admin(manager)  ==>login -- add clerk
 # Create your models here.
@@ -43,7 +43,7 @@ class Order(models.Model):
     CATEGORY = (
     ('1','electronics'),('2','foods'),('3','detergents'),('4','kitchen-ware'),('5','toys')
     )
- 
+
     category = models.CharField(max_length=20,choices=CATEGORY,null=True)
     date = models.DateField(auto_now_add=True)
     ordered_product = models.CharField(max_length=20)
@@ -61,12 +61,9 @@ class Defectivegood(models.Model):
     CATEGORY = (
     ('1','electronics'),('2','foods'),('3','detergents'),('4','kitchen-ware'),('5','toys')
     )
- 
+
     category = models.CharField(max_length=20,choices=CATEGORY,null=True)
     name = models.CharField(max_length=20)
     quantity = models.IntegerField()
     # product = models.ForeignKey(Product, on_delete=models.DO_NOTHING)
     # clerk = models.ForeignKey(Clerk, on_delete=models.DO_NOTHING)
-    
-
-
