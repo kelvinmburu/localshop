@@ -92,6 +92,7 @@ label #cancel {
 
 .container {
     height: auto;
+    width: 80%;
     margin-right: 6px !important;
 }
 
