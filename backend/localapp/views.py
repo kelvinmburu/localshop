@@ -12,6 +12,7 @@ from rest_framework.response import Response
 from rest_framework.utils import json
 from rest_framework import serializers
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here.
@@ -25,6 +26,7 @@ def HomePageView(request):
 
 @csrf_exempt
 def adminapi(request,id=0):
+    permission_classes = [IsAuthenticated]
     if request.method == 'GET':
         admin = Admin.objects.all()
         admin_serializer = AdminSerializer(admin,many=True)
@@ -58,6 +60,7 @@ def adminapi(request,id=0):
 
 @csrf_exempt
 def productapi(request,id=0):
+    permission_classes = [IsAuthenticated]
     if request.method == 'GET':
         product = Product.objects.all()
         
@@ -90,6 +93,7 @@ def productapi(request,id=0):
 # clerkapi
 @csrf_exempt
 def clerkapi(request,id=0):
+    permission_classes = [IsAuthenticated]
     if request.method == 'GET':
         my_clerk = Clerk.objects.all()
         clerk_serializer = ClerkSerializer(my_clerk,many=True)
@@ -120,6 +124,7 @@ def clerkapi(request,id=0):
 # orderapi
 @csrf_exempt
 def orderapi(request,id=0):
+    permission_classes = [IsAuthenticated]
     if request.method == 'GET':
         order = Order.objects.all()
         order_serializer = OrderSerializer(order,many=True)
@@ -152,6 +157,7 @@ def orderapi(request,id=0):
 
 @csrf_exempt
 def defectivegoodsapi(request,id=0):
+    permission_classes = [IsAuthenticated]
     if request.method == 'GET':
         defective = Defectivegood.objects.all()
         defective_serializer = DefectiveGoodsSerializer(defective,many=True)
