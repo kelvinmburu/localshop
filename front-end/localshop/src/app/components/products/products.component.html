@@ -46,7 +46,7 @@
     </div>
     <div class="container" style="border:1px solid #cecece;">
       <div class="d-grid gap-2 col-6 mx-auto btn-group d-flex justify-content-evenly">
-        <button type="button" class="btn btn-lg">Add Product</button>
+        <button type="button" class="btn btn-lg" (click)="open(content)">Add Product</button>
         <br>
         <button type="button" class="btn btn-lg">Request</button>
       </div>
@@ -82,6 +82,85 @@
       </div>
       <br>
     </div>
+    <!-- Modal -->
+    <ng-template #content let-modal>
+      <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">New Product</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"
+          style="padding: 6px; border-radius: 5px;">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <div class="input-group">
+              <input id="pname" class="form-control" placeholder="Product Name" type="text">
+            </div>
+          </div>
+          <br>
+          <div class="form-group">
+            <div class="input-group">
+              <input id="expiry" class="form-control" placeholder="Expiry Date" type="date">
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <div class="input-group">
+              <select name="category" id="category" class="form-select">
+                <option value="category" selected="selected">Category</option>
+                <option value="volvo">Electronics</option>
+                <option value="saab">Foods</option>
+                <option value="mercedes">Detergents</option>
+                <option value="audi">Kitchen-Ware</option>
+                <option value="audi">Toys</option>
+              </select>
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <div class="input-group">
+              <input id="items" class="form-control" placeholder="No. of Items" type="number">
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <div class="input-group">
+              <select name="status" id="status" class="form-select">
+                <option value="status" selected="selected">Status</option>
+                <option value="volvo">Paid</option>
+                <option value="saab">Not Paid</option>
+              </select>
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-4">
+            <div class="input-group">
+              <input id="buying" class="form-control" placeholder="Buying Price" type="number">
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-4">
+            <div class="input-group">
+              <div class="input-group">
+                <input id="selling" class="form-control" placeholder="Selling Price" type="number">
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="form-group col-md-6">
+            <div class="input-group">
+              <div class="input-group">
+                <input id="spoiltexpired" class="form-control" placeholder="Spoilt/Expired Item" type="number">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add</button>
+      </div>
+    </ng-template>
   </div>
 </body>
 
