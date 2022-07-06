@@ -20,6 +20,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SharedService} from './services/shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RequestComponent } from './components/request/request.component';
+import { ClerkComponent } from './components/clerk/clerk.component';
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     DashboardComponent,
     OrdersComponent,
     DefectiveGoodsComponent,
-    ProductsComponent
+    ProductsComponent,
+    RequestComponent,
+    ClerkComponent
   ],
   imports: [
     BrowserModule,
