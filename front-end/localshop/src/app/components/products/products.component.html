@@ -16,6 +16,7 @@
 </head>
 
 <body>
+  <app-navbar></app-navbar>
   <input type="checkbox" id="check">
   <label for="check">
     <i class="fas fa-bars" id="btn" style="background-color: #219EBC;"></i>
@@ -23,15 +24,15 @@
   </label>
   <div class="sidebar">
     <header>Products</header>
-    <a href="#" class="active">
+    <a href="dashboard/" class="active">
       <i class="fas fa-qrcode"></i>
       <span>Dashboard</span>
     </a>
-    <a href="#">
+    <a href="orders/">
       <i class="fas fa-exchange-alt"></i>
       <span>Orders</span>
     </a>
-    <a href="#">
+    <a href="stores/">
       <i class="fas fa-warehouse"></i>
       <span>Stores</span>
     </a>
@@ -81,6 +82,7 @@
     </div>
     <br>
   </div>
+  
+  <app-footer></app-footer>
 </body>
-
 </html>
