@@ -1,0 +1,40 @@
+#defective-container {
+  border: 1px solid #c5c5c5;
+  align-items: start;
+}
+
+#defective-container input {
+  width: 40%;
+  padding: 10px;
+
+}
+
+#submit-defective {
+  background-color: #023047;
+  padding: .8vw .8vw .8vw .8vw;
+  color: #fff;
+  border: none;
+  border-radius: 2%;
+}
+
+/* defective-table */
+#defective-thead {
+  background-color: #023047;
+  padding: 12vw 2vw 2vw 2vw;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+
+}
+
+#defective-thead th {
+  padding: 2vw 2vw 2vw 2vw;
+}
+
+#defective-table {
+  border: 1px solid #c5c5c5;
+}
+
+#defective-tr td {
+  padding: 2vw 2vw 2vw 2vw;
+  font-family: 'Poppins', sans-serif;
+}
