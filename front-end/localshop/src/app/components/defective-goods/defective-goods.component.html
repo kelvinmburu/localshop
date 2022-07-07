@@ -9,18 +9,15 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <nav>
-
-    </nav> -->
-    <h3>Defective Goods</h3>
-
+  <app-navbar></app-navbar>
+    <h3 class="title">Defective Goods</h3>
     <div class="container" id="defective-container">
-        <h5>Add Defective Good</h5>
+        <h5 style="margin-top: 8px;">Add Defective Good</h5>
         <div class="product_container">
           <input type="text" id="product" Placeholder="Product Name ..." #title required>
         </div><br>
         <div class="quantity_container">
-            <input type="text" id="quantity" Placeholder="Quantity ..."  #quantity required/>
+            <input type="number" id="quantity" Placeholder="Quantity ..."  #quantity required/>
           </div>
           <br>
           <div class="store_container">
@@ -29,19 +26,19 @@
           <br>
         <div class="category">
             <!-- <input type="text" id="cat" Placeholder="Choose category ..."  #cat required/> -->
-            <label for="category">Choose a category:</label>
+            <!-- <label for="category">Choose a category:</label> -->
 
             <select name="cat" id="cat">
-            <option value="Electronics">Electronics</option>
-            <option value="food">food</option>
-            <option value="Kitchen ware">Kitchen ware</option>
-            
+              <option value="choose category">Choose category</option>
+              <option value="Electronics">Electronics</option>
+              <option value="food">food</option>
+              <option value="Kitchen ware">Kitchen ware</option>
             </select>
           
         </div>
           <br>
         
-        <button class="submit_btn" id="submit-defective" >
+        <button class="submit_btn" id="submit-defective" style="margin-bottom: 5px; border-radius: 5px;">
           Add 
         </button>
       </div>
@@ -75,5 +72,6 @@
         
     </div>
   
+    <app-footer></app-footer> 
 </body>
 </html>

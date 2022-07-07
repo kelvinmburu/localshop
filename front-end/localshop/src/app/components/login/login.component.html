@@ -1,1 +1,19 @@
-<p>login works!</p>
+<app-navbar></app-navbar>
+<div class="container" style="margin-top: 10px; border:1px solid #cecece;">
+    <h1 style="text-align: center; margin-bottom: 10px;">
+        Login
+    </h1>
+    <form style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <div class="mb-3">
+          <label for="employeeid" class="form-label">Employee ID</label>
+          <input type="text" class="form-control" id="employeeid" name="employeeid">
+        
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password">
+        </div>
+        <button type="submit" class="btn" style="background-color: #023047; color: #fff;">Login</button>
+      </form>
+</div>
+<app-footer></app-footer>
