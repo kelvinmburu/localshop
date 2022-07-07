@@ -18,10 +18,10 @@ from rest_framework import viewsets
 def HomePageView(request):
     if request.method == 'GET':
         return render(request, 'index.html', context=None)
- 
+
 # admin api,products,orders,defectivegoods,
 
-# 
+#
 
 @csrf_exempt
 def adminapi(request,id=0):
@@ -60,7 +60,7 @@ def adminapi(request,id=0):
 def productapi(request,id=0):
     if request.method == 'GET':
         product = Product.objects.all()
-        
+
         product_serializer = ProductSerializer(product,many=True)
         return JsonResponse(product_serializer.data,safe=False)
 
