@@ -40,8 +40,8 @@ import { ClerkComponent } from './components/clerk/clerk.component';
     DefectiveGoodsComponent,
     ProductsComponent,
     RequestComponent,
-    ClerkComponent
-    StoresComponent
+    ClerkComponent,
+    StoresComponent,
   ],
   imports: [
     BrowserModule,
