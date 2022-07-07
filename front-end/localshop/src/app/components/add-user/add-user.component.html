@@ -1,20 +1,20 @@
 <app-navbar></app-navbar>
 <div class="container-fluid" style="margin-top: 10px; margin-bottom: 20px;">
   <h3 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">Add New Admin</h3>
-  <form style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+  <form #userCredentials = "ngForm" class="example-form" (ngSubmit)="addAdmin(userCredentials.value)" aria-required="true">
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
-      <input type="text" class="form-control" id="username" name="username">
-    </div>
-    
+      <input type="text" class="form-control" name="name" ngModel>
+    </div> 
+  
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email">
+      <input type="email" class="form-control" name="email" ngModel>
     </div>
     
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password">
+      <input type="password" class="form-control" name="password" ngModel>
     </div>
     
     <button type="submit" class="btn" style="background-color: #023047; color: #ffffff;">Add</button>
