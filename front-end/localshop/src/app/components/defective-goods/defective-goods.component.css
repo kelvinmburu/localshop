@@ -4,7 +4,10 @@
     font-family: 'Poppins', sans-serif;
     
 }
-
+.title{
+    margin-top: 15px;
+    text-align: center;
+}
 #defective-container{
     border: 1px solid #c5c5c5;
     align-items: start;
