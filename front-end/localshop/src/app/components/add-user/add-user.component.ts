@@ -8,16 +8,23 @@ import { SharedService } from 'src/app/services/shared.service';
   providers: [SharedService] 
 })
 export class AddUserComponent implements OnInit {
-  newAdmin:any;
+  adminData:any;
+  form: any = {
+    username: null,
+    email: null,
+    password: null
+  }; 
+
+  errorMessage = ""
 
   constructor(private service: SharedService) { }
 
   ngOnInit(): void {
-    // this.newAdmin = {
-    //   username: '',
-    //   email: '',
-    //   password: '',
-    // };
+    this.service.getAdmin().subscribe(data => {
+      console.log(data)
+
+      this.adminData = data;
+    });
   }
 
   // addNewAdmin(){
@@ -30,12 +37,19 @@ export class AddUserComponent implements OnInit {
   // }
 
 
-  addAdmin(credentials: any){
-    this.service.addAdmin(credentials.name, credentials.email, credentials.password).subscribe((data: any) => {
+  onSubmit(){
+    const { username, email, password } = this.form; 
+    console.log(this.form)
+    this.service.addAdmin(username, email, password).subscribe(data => {
         console.log(data);
-      })
+      }, err => {
+        this.errorMessage = err.error.message;
+        console.log(this.errorMessage);
 
-      window.location.href = '/newadmin';
+      }
+      )
+
+      // window.location.href = '/newadmin';
 
     }
 

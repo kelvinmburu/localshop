@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs'; //Handle asynchronous requests and responses
-const APIUrl = 'http://127.0.0.1:8000/';
+const APIUrl = 'http://127.0.0.1:8000';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -23,8 +23,12 @@ export class SharedService {
   //   return this.http.post(this.APIUrl + '/newadmin/', userData);
   // }
 
-  addAdmin(name: string, email: string, password: string){
-    return this.http.post(APIUrl, { name, email, password}, httpOptions);
+  getAdmin():Observable<any>{
+    return this.http.get(APIUrl + "/newadmin/"); 
+  }
+
+  addAdmin(name: string, email: string, password: string):Observable<any>{
+    return this.http.post(APIUrl + "/newadmin/", {name, email, password}, httpOptions);
   } 
 
   // createUser(username: string, email: string, password: string, is_caterer: any, is_customer: any) {
