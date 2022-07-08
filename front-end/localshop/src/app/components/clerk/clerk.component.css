@@ -1,13 +1,20 @@
-#defective-container {
-  border: 1px solid #c5c5c5;
-  align-items: start;
+
+.container-fluid{
+  height: 44vh;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#defective-container input {
-  width: 40%;
+
+form input {
+  width: 400px;
   padding: 10px;
-
 }
+
 
 #submit-defective {
   background-color: #023047;

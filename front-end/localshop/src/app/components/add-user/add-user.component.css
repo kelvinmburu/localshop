@@ -1,5 +1,5 @@
 .container-fluid{
-    height: 80vh;
+    height: 64vh;
 }
 form {
     display: flex;
@@ -9,6 +9,11 @@ form {
 }
 .form-control{
     width: 260px; 
+}
+
+form input {
+  width: 400px;
+  padding: 10px;
 }
 
 

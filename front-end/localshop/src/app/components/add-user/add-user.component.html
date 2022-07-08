@@ -5,7 +5,7 @@
   </div>
   <h3 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">Add New Admin</h3>
   <!-- <form #userCredentials = "ngForm" class="example-form" (ngSubmit)="addAdmin(userCredentials.value)" aria-required="true"> -->
-  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
       <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required username #name="ngModel">
@@ -43,7 +43,7 @@
 
     <tr *ngFor="let data of adminData" id="defective-tr">
       <td>{{data.name}}</td>
-      <td>{{email}}</td> 
+      <td>{{data.email}}</td> 
       <td></td>
     </tr>
   </table>
