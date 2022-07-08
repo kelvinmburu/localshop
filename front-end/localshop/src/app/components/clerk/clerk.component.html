@@ -18,21 +18,24 @@
   <h3 class="fw-bold" style="text-align:center; padding: 10px;">Add Clerk</h3>
 
   <div class="container" id="defective-container"> <br>
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     <div class="">
-      <input type="text" id="username" placeholder="Username" required>
+      <input type="text" name="fullname" placeholder="Your Name" [(ngModel)]="form.fullname" required fullname #name="ngModel">
     </div><br>
+
     <div class="">
-      <input type="password" id="password" placeholder="Password" required />
+      <input type="email" name="email" placeholder="Email Address" [(ngModel)]="form.email" required email #email="ngModel">
     </div>
+
     <br>
     <div class="store_container">
-      <input type="email" id="email" placeholder="Email" required />
-    </div>
-    <br>
+      <input type="password" name="password" placeholder="Password" [(ngModel)]="form.password" required password #password="ngModel">
+    </div><br>
 
     <button class="submit_btn" id="submit-defective" style="padding: 10px; margin-bottom: 10px; border-radius: 3px;">
       Send
     </button>
+  </form>
   </div>
   <br>
   <div class="container">
@@ -50,10 +53,9 @@
           <th>Delete</th>
 
         </thead>
-
-        <tr id="defective-tr">
-          <td>Username</td>
-          <td>test@test.com</td>
+        <tr *ngFor="let detail of clerkDetails" id="defective-tr">
+          <td>{{detail.name}}</td>
+          <td>{{detail.email}}</td>
           <td></td>
           <td></td>
         </tr>

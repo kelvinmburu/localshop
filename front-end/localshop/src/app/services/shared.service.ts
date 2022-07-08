@@ -31,9 +31,17 @@ export class SharedService {
     return this.http.post(APIUrl + "/newadmin/", {name, email, password}, httpOptions);
   } 
 
-  // createUser(username: string, email: string, password: string, is_caterer: any, is_customer: any) {
-  //   return this.http.post(baseUrl, { username, email, password, is_caterer, is_customer }, httpOptions);
-  // }
+
+
+  getClerks():Observable<any>{
+    return this.http.get(APIUrl + "/clerks/"); 
+  }
+
+  registerClerk(name: string, email: string, password: string):Observable<any>{
+    return this.http.post(APIUrl + "/clerks/", {name, email, password}, httpOptions);
+  } 
+
+
 
 
 
