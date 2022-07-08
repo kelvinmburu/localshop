@@ -17,7 +17,7 @@ class ClerkSerializer(serializers.ModelSerializer):
 class AdminSerializer(serializers.ModelSerializer):
     class Meta:
         model = Admin
-        fields = ['name', 'email', 'password', 'AdminId']
+        fields = ['name', 'email', 'password']
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:

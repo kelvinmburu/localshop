@@ -4,23 +4,50 @@
     <button routerLink="/clerk" type="submit" class="btn" style="background-color: #023047; color: #ffffff;">Add Clerk</button>
   </div>
   <h3 style="text-align: center; margin-bottom: 20px; margin-top: 20px;">Add New Admin</h3>
-  <form #userCredentials = "ngForm" class="example-form" (ngSubmit)="addAdmin(userCredentials.value)" aria-required="true">
+  <!-- <form #userCredentials = "ngForm" class="example-form" (ngSubmit)="addAdmin(userCredentials.value)" aria-required="true"> -->
+  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
     <div class="mb-3">
       <label for="username" class="form-label">Username</label>
-      <input type="text" class="form-control" name="name" ngModel>
+      <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required username #name="ngModel">
     </div> 
   
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" name="email" ngModel>
+      <input type="email" class="form-control" name="email" [(ngModel)]="form.email" required email #email="ngModel">
     </div>
     
     <div class="mb-3">
       <label for="password" class="form-label">Password</label>
-      <input type="password" class="form-control" name="password" ngModel>
+      <input type="password" class="form-control" name="password" [(ngModel)]="form.password"
+      required password #password="ngModel">
     </div>
     
     <button type="submit" class="btn" style="background-color: #023047; color: #ffffff;">Add</button>
   </form> 
 </div>
-<app-footer></app-footer>
+
+<div class="container">
+  <h3 class="fw-bold" style="text-align:center; padding: 10px;">All Admins</h3>
+  <hr class="bg-dark border-1 border-top border-dark">
+</div>
+<div class="container">
+<div class="defective mt-5" id="">
+  <table class="table" id="defective-table">
+    <thead class="thead" id="defective-thead">
+      <th>Username</th>
+      <th>Email</th>
+      <th>Update</th>
+      <th>Delete</th>
+
+    </thead>
+
+    <tr *ngFor="let data of adminData" id="defective-tr">
+      <td>{{data.name}}</td>
+      <td>{{data.email}}</td> 
+      <td></td>
+    </tr>
+  </table>
+
+</div>
+</div>
+<!-- <app-footer></app-footer> -->

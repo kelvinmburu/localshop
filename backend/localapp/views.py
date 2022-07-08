@@ -53,9 +53,14 @@ def adminapi(request,id=0):
        return JsonResponse("admin deleted successfully",safe=False)
 
 
+@csrf_exempt
+def testApi(request):
+    if request.method == 'GET':
+        items = ['bread', 'milk', 'shoes', 'books']
+
+
 
 # productsapi
-
 @csrf_exempt
 def productapi(request,id=0):
     if request.method == 'GET':
