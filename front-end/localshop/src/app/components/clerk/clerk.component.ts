@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -27,9 +28,7 @@ export class ClerkComponent implements OnInit {
     });
   }
 
-
-
-  onSubmit(){
+  onSubmit(f: NgForm){
     const { fullname, email, password } = this.form; 
     console.log(this.form)
     this.clerkService.registerClerk(fullname, email, password).subscribe(data => {
@@ -39,9 +38,6 @@ export class ClerkComponent implements OnInit {
         console.log(this.errorMessage);
 
       });
-
-      // window.location.href = '/newadmin';
-
+      f.reset();
     }
-
 }
