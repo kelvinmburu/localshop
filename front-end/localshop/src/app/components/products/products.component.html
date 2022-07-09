@@ -42,33 +42,100 @@
         <span>Logout</span>
       </a>
     </div>
-    <div>
+    <div style="padding: 10px;">
       <h2 class="text-center fw-bold">Products</h2>
     </div>
     <div class="container" style="border:1px solid #cecece;">
       <div class="d-grid gap-2 col-6 mx-auto btn-group d-flex justify-content-evenly">
-        <button type="button" class="btn btn-lg" (click)="open(content)">Add Product</button>
         <br>
-        <button type="button" class="btn btn-lg">Request</button>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
+          <!-- Product Name -->
+          <div class="form-group">
+            <div class="input-group">
+              <input name="product_name" [(ngModel)]="form.product_name" class="form-control" placeholder="Product Name"
+                type="text" required product_name #name="ngModel">
+            </div>
+          </div>
+          <br>
+          <!-- Expiry Date -->
+          <div class="form-group">
+            <div class="input-group">
+              <input name="expiry_date" [(ngModel)]="form.expiry_date" class="form-control" placeholder="Expiry Date"
+                type="date" required expiry_date #name="ngModel">
+            </div>
+          </div>
+          <br>
+          <!-- Select category -->
+          <div class="form-group">
+            <div class="input-group">
+              <select name="category" class="form-select" formControlName="category" required category>
+                <option disabled selected value="undefined">Select Category</option>
+                <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+              </select>
+            </div>
+          </div>
+          <br>
+          <!-- Items Quantity -->
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" placeholder="No. of Items" type="number" name="quantity"
+                [(ngModel)]="form.quantity" quantity required #name="ngModel">
+            </div>
+          </div>
+          <br>
+          <!-- Item Status -->
+          <div class="form-group">
+            <div class="input-group">
+              <select name="status" class="form-select" formControlName="status" required status [(ngModel)]="status">
+                <option disabled selected value="undefined">Status</option>
+                <option *ngFor="let state of status" [ngValue]="state.id">{{state.name}}</option>
+              </select>
+            </div>
+          </div>
+          <br>
+          <!-- Buying price -->
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" placeholder="Buying Price" type="number" name="buying_price"
+                [(ngModel)]="form.buying_price" required buying_price #name="ngModel">
+            </div>
+          </div>
+          <br>
+          <!-- Selling price -->
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group">
+                <input class="form-control" placeholder="Selling Price" type="number" name="selling_price"
+                  [(ngModel)]="form.selling_price" required selling_price #name="ngModel">
+              </div>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn" style="background-color: #023047; color: #ffffff;">Add</button>
+        </form>
       </div>
       <br>
+      <hr class="bg-dark border-1 border-top border-dark">
       <h2 class="fw-bold" style="margin-top: 35px;">All Products</h2>
       <hr class="bg-dark border-1 border-top border-dark">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Name:</h5>
-          <p class="card-text">Added by:</p>
-          <a href="#" class="btn" style="background-color: #023047; color: #fff;">View</a>
+      <!-- <div class="container"> -->
+        <div class="row">
+          <!-- <div class="d-flex"> -->
+            <div class="col-md-4 mx-2 card d-flex mb-2 justify-content-around" style="width: 18rem;" *ngFor="let product of productData">
+              <div class="card-body">
+                <h5 class="card-title">{{product.product_name}}</h5>
+                <p class="card-text"><strong>Price:</strong> {{product.buying_price}}</p>
+                <p class="card-text"><strong>Quantity:</strong> {{product.quantity}}</p>
+                <p class="card-text"><strong>Selling Price:</strong> {{product.selling_price}}</p>
+                <!-- <p class="card-text"><strong>Category:</strong> {{product.category}}</p> -->
+                <p class="card-text"><strong>Date Received:</strong> {{product.date_received|date: 'dd/MM/yyyy'}}</p>
+                <a href="#" class="btn" style="background-color: #023047; color: #fff;">View</a>
+              </div>
+            </div>
+          <!-- </div> -->
         </div>
-      </div>
+      <!-- </div> -->
       <br>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Name:</h5>
-          <p class="card-text">Added by:</p>
-          <a href="#" class="btn" style="background-color: #023047; color: #fff;">View</a>
-        </div>
-      </div>
       <br>
       <div class="d-flex justify-content-center">
         <nav aria-label="Page navigation example" class="justify-content-center mx-auto">
@@ -83,87 +150,9 @@
       </div>
       <br>
     </div>
-    <!-- Modal -->
-    <ng-template #content let-modal>
-      <div class="modal-header">
-        <h4 class="modal-title" id="modal-basic-title">New Product</h4>
-        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"
-          style="padding: 6px; border-radius: 5px;">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <div class="input-group">
-              <input id="pname" class="form-control" placeholder="Product Name" type="text">
-            </div>
-          </div>
-          <br>
-          <div class="form-group">
-            <div class="input-group">
-              <input id="expiry" class="form-control" placeholder="Expiry Date" type="date">
-            </div>
-          </div>
-          <br>
-          <div class="form-group col-md-6">
-            <div class="input-group">
-              <select name="category" id="category" class="form-select">
-                <option value="category" selected="selected">Category</option>
-                <option value="volvo">Electronics</option>
-                <option value="saab">Foods</option>
-                <option value="mercedes">Detergents</option>
-                <option value="audi">Kitchen-Ware</option>
-                <option value="audi">Toys</option>
-              </select>
-            </div>
-          </div>
-          <br>
-          <div class="form-group col-md-6">
-            <div class="input-group">
-              <input id="items" class="form-control" placeholder="No. of Items" type="number">
-            </div>
-          </div>
-          <br>
-          <div class="form-group col-md-6">
-            <div class="input-group">
-              <select name="status" id="status" class="form-select">
-                <option value="status" selected="selected">Status</option>
-                <option value="volvo">Paid</option>
-                <option value="saab">Not Paid</option>
-              </select>
-            </div>
-          </div>
-          <br>
-          <div class="form-group col-md-4">
-            <div class="input-group">
-              <input id="buying" class="form-control" placeholder="Buying Price" type="number">
-            </div>
-          </div>
-          <br>
-          <div class="form-group col-md-4">
-            <div class="input-group">
-              <div class="input-group">
-                <input id="selling" class="form-control" placeholder="Selling Price" type="number">
-              </div>
-            </div>
-          </div>
-          <br>
-          <div class="form-group col-md-6">
-            <div class="input-group">
-              <div class="input-group">
-                <input id="spoiltexpired" class="form-control" placeholder="Spoilt/Expired Item" type="number">
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Add</button>
-      </div>
-    </ng-template>
+    <!-- Modal form -->
   </div>
-  
   <app-footer></app-footer>
 </body>
+
 </html>
