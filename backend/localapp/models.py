@@ -24,7 +24,7 @@ class Clerk(models.Model):
 
 class Product(models.Model):
     CATEGORY = (
-    ('1','electronics'),('2','foods'),('3','detergents'),('4','kitchen-ware'),('5','toys')
+    ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
 )
     product_name = models.CharField(max_length=20)
     category = models.CharField(max_length=20,choices=CATEGORY,null=True)
@@ -40,8 +40,8 @@ class Product(models.Model):
 
 class Order(models.Model):
     CATEGORY = (
-    ('1','electronics'),('2','foods'),('3','detergents'),('4','kitchen-ware'),('5','toys')
-    )
+    ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
+)
 
     category = models.CharField(max_length=20,choices=CATEGORY,null=True)
     date = models.DateField(auto_now_add=True)
@@ -50,9 +50,9 @@ class Order(models.Model):
 
 class Defectivegood(models.Model):
     CATEGORY = (
-    ('1','electronics'),('2','foods'),('3','detergents'),('4','kitchen-ware'),('5','toys')
-    )
+    ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
+)
 
     category = models.CharField(max_length=20,choices=CATEGORY,null=True)
-    name = models.CharField(max_length=20)
+    goodname = models.CharField(max_length=20)
     quantity = models.IntegerField()
