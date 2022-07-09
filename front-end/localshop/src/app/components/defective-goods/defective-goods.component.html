@@ -9,38 +9,42 @@
     <title>Document</title>
 </head>
 <body>
+  <!-- <input [(ngModel)]="person.firstName" name="first"> -->
   <app-navbar></app-navbar>
     <h3 class="title">Defective Goods</h3>
     <div class="container" id="defective-container">
         <h5 style="margin-top: 8px;">Add Defective Good</h5>
-        <div class="product_container">
-          <input type="text" id="product" Placeholder="Product Name ..." #title required>
-        </div><br>
-        <div class="quantity_container">
-            <input type="number" id="quantity" Placeholder="Quantity ..."  #quantity required/>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
+          <!-- Product Name -->
+          <div class="form-group">
+            <div class="input-group">
+              <input [(ngModel)]="form.good_name" name="defectivename" class="form-control" placeholder="Product Name"
+                type="text" required good_name #name="ngModel">
+            </div>
           </div>
           <br>
-          <div class="store_container">
-            <input type="text" id="store" Placeholder="Store ..."  #quantity required/>
+          <div class="form-group">
+            <div class="input-group">
+              <input class="form-control" placeholder="No. of Items" type="number" name="quantity"
+                [(ngModel)]="form.quantity" quantity required #name="ngModel">
+            </div>
           </div>
           <br>
-        <div class="category">
-            <!-- <input type="text" id="cat" Placeholder="Choose category ..."  #cat required/> -->
-            <!-- <label for="category">Choose a category:</label> -->
-
-            <select name="cat" id="cat">
-              <option value="choose category">Choose category</option>
-              <option value="Electronics">Electronics</option>
-              <option value="food">food</option>
-              <option value="Kitchen ware">Kitchen ware</option>
-            </select>
-          
-        </div>
+         
+          <!-- Select category -->
+          <div class="form-group">
+            <div class="input-group">
+             
+              <select [(ngModel)]="form.category" name="category" class="form-select" formControlName="category" required category>
+                <option disabled selected value="undefined">Select Category</option>
+                <option *ngFor="let category of categories" [selected]="category.name" [ngValue]="category.name">{{category.name}}</option>
+              </select>
+            </div>
+          </div>
           <br>
-        
-        <button class="submit_btn" id="submit-defective" style="margin-bottom: 5px; border-radius: 5px;">
-          Add 
-        </button>
+          <button type="submit" class="btn" style="background-color: #023047; color: #ffffff;">Add</button>
+         
+          </form>
       </div>
       
     <div class="container">
@@ -52,16 +56,17 @@
                     
                    
                     <th>Quantity</th>
-                    <th>Store</th>
+                  
                     <th>Category</th>
                     
                 </thead>
+                <!-- defectiveGoodsData -->
               
-                <tr id="defective-tr">
-                    <td>Product</td>
-                    <td>Product</td>
-                    <td>Product</td>
-                    <td>Product</td>
+                <tr id="defective-tr" *ngFor="let def of defectiveGoodsData">
+                    <td>{{def.good_name}}</td>
+                    <td>{{def.quantity}}</td>
+                    
+                    <td *ngIf="categories">{{def.category}}</td>
                    
                 </tr>
               
