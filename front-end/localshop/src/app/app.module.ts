@@ -14,6 +14,8 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { DefectiveGoodsComponent } from './components/defective-goods/defective-goods.component';
 import { ProductsComponent } from './components/products/products.component';
 import { StoresComponent } from './components/stores/stores.component'; 
+import { RequestComponent } from './components/request/request.component';
+import { ClerkComponent } from './components/clerk/clerk.component'; 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -21,8 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SharedService} from './services/shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { RequestComponent } from './components/request/request.component';
-import { ClerkComponent } from './components/clerk/clerk.component';
+
 
 
 
