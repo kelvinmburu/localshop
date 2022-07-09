@@ -17,9 +17,10 @@
 
 <body>
   <app-navbar></app-navbar>
+
   <div>
     <input type="checkbox" id="check">
-    <label for="check">
+    <label for="check" style="position: fixed;">
       <i class="fas fa-bars" id="btn" style="background-color: #219EBC;"></i>
       <i class="fas fa-times" id="cancel"></i>
     </label>
@@ -42,13 +43,16 @@
         <span>Logout</span>
       </a>
     </div>
+  </div>
+  <!-- Start of main container -->
+  <div>
     <div style="padding: 10px;">
       <h2 class="text-center fw-bold">Products</h2>
     </div>
     <div class="container" style="border:1px solid #cecece;">
       <div class="d-grid gap-2 col-6 mx-auto btn-group d-flex justify-content-evenly">
         <br>
-        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" formControlName="categoryName" novalidate>
           <!-- Product Name -->
           <div class="form-group">
             <div class="input-group">
@@ -119,21 +123,22 @@
       <h2 class="fw-bold" style="margin-top: 35px;">All Products</h2>
       <hr class="bg-dark border-1 border-top border-dark">
       <!-- <div class="container"> -->
-        <div class="row">
-          <!-- <div class="d-flex"> -->
-            <div class="col-md-4 mx-2 card d-flex mb-2 justify-content-around" style="width: 18rem;" *ngFor="let product of productData">
-              <div class="card-body">
-                <h5 class="card-title">{{product.product_name}}</h5>
-                <p class="card-text"><strong>Price:</strong> {{product.buying_price}}</p>
-                <p class="card-text"><strong>Quantity:</strong> {{product.quantity}}</p>
-                <p class="card-text"><strong>Selling Price:</strong> {{product.selling_price}}</p>
-                <!-- <p class="card-text"><strong>Category:</strong> {{product.category}}</p> -->
-                <p class="card-text"><strong>Date Received:</strong> {{product.date_received|date: 'dd/MM/yyyy'}}</p>
-                <a href="#" class="btn" style="background-color: #023047; color: #fff;">View</a>
-              </div>
-            </div>
-          <!-- </div> -->
+      <div class="row">
+        <!-- <div class="d-flex"> -->
+        <div class="col-md-4 mx-2 card d-flex mb-2 justify-content-around" style="width: 18rem;"
+          *ngFor="let product of productData">
+          <div class="card-body">
+            <h5 class="card-title">{{product.product_name}}</h5>
+            <p class="card-text"><strong>Price:</strong> {{product.buying_price}}</p>
+            <p class="card-text"><strong>Quantity:</strong> {{product.quantity}}</p>
+            <p class="card-text"><strong>Selling Price:</strong> {{product.selling_price}}</p>
+            <!-- <p class="card-text"><strong>Category:</strong> {{product.category}}</p> -->
+            <p class="card-text"><strong>Date Received:</strong> {{product.date_received|date: 'dd/MM/yyyy'}}</p>
+            <a href="#" class="btn" style="background-color: #023047; color: #fff;">View</a>
+          </div>
         </div>
+        <!-- </div> -->
+      </div>
       <!-- </div> -->
       <br>
       <br>
