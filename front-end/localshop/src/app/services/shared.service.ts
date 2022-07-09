@@ -69,6 +69,44 @@ export class SharedService {
       date_received
     });
   }
+  // // defectivegoods API method
+  getDefectiveGoodsList(): Observable<any[]> {
+    return this.http.get<any[]>(APIUrl + '/defective/');
+  }
+    //  name, quantity, category
+  addNewDefectiveGood(
+    good_name:string, quantity:number, category:string
+  ) {
+    return this.http.post(APIUrl + '/defective/', {
+      good_name,quantity,category
+    });
+  }
+
+  // createOrder(val:any) {
+  //   return this.http.post(this.APIUrl + '/orders/', val);
+  // }
+
+  // updateOrder(val:any) {
+  //   return this.http.put(this.APIUrl + '/orders/', val);
+  // }
+
+  // deleteOrder(val:any) {
+  //   return this.http.delete(this.APIUrl + '/orders/' + val);
+  // }
+
+  // getAllOrders():Observable<any[]> {
+  //   return this.http.get<any[]>(this.APIUrl + '/orders/');
+  // }
+
+
+
+
+
+
+
+
+
+
 
   // // Login API method
   // loginUser(val:any) {
@@ -104,26 +142,6 @@ export class SharedService {
   //   return this.http.get<any[]>(this.APIUrl + '/products/');
   // }
 
-  // // Orders API method
-  // getOrdersList(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/orders/');
-  // }
-
-  // createOrder(val:any) {
-  //   return this.http.post(this.APIUrl + '/orders/', val);
-  // }
-
-  // updateOrder(val:any) {
-  //   return this.http.put(this.APIUrl + '/orders/', val);
-  // }
-
-  // deleteOrder(val:any) {
-  //   return this.http.delete(this.APIUrl + '/orders/' + val);
-  // }
-
-  // getAllOrders():Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/orders/');
-  // }
 
   // // Stores API method
   // getStoresList(): Observable<any[]> {
