@@ -67,10 +67,11 @@
           <br>
           <!-- Select category -->
           <div class="form-group">
-            <div class="input-group">
-              <select name="category" class="form-select" formControlName="category" required category>
-                <option disabled selected value="undefined">Select Category</option>
-                <option *ngFor="let category of categories" [ngValue]="category.id">{{category.name}}</option>
+            <div class="input-group" placeholder="No. of Items" >
+             
+              <select [(ngModel)]="form.category" name="category" class="form-select" placeholder="No. of Items"  required category >
+                <!-- <option disabled selected value="undefined">Select Category</option> -->
+                <option *ngFor="let category of categories" [selected]="category.name" [ngValue]="category.name">{{category.name}}</option>
               </select>
             </div>
           </div>
@@ -86,7 +87,7 @@
           <!-- Item Status -->
           <div class="form-group">
             <div class="input-group">
-              <select name="status" class="form-select" formControlName="status" required status [(ngModel)]="status">
+              <select name="status" class="form-select" required status [(ngModel)]="form.status">
                 <option disabled selected value="undefined">Status</option>
                 <option *ngFor="let state of status" [ngValue]="state.id">{{state.name}}</option>
               </select>
@@ -127,7 +128,8 @@
                 <p class="card-text"><strong>Price:</strong> {{product.buying_price}}</p>
                 <p class="card-text"><strong>Quantity:</strong> {{product.quantity}}</p>
                 <p class="card-text"><strong>Selling Price:</strong> {{product.selling_price}}</p>
-                <!-- <p class="card-text"><strong>Category:</strong> {{product.category}}</p> -->
+                <p class="card-text"><strong>Category:</strong> {{product.category}}</p>
+                <!-- <p class="card-text"><strong>Status:</strong> {{product.status}}</p> -->
                 <p class="card-text"><strong>Date Received:</strong> {{product.date_received|date: 'dd/MM/yyyy'}}</p>
                 <a href="" class="btn" style="background-color: #023047; color: #fff;">View</a>
               </div>
