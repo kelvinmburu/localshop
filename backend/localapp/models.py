@@ -3,9 +3,8 @@ from django.contrib.auth.models import User
 
 
 STATUS = (
-    ('Paid','Paid'),
-    ('Unpaid','Unpaid'),
-
+    ('1','Paid'),
+    ('2','Unpaid'),
 )
 
 

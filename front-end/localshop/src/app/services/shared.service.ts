@@ -90,9 +90,23 @@ export class SharedService {
       })
     }
 
+    updateProduct(item:any){
+      return this.http.put(APIUrl + '/department/', item);
+    }
 
+
+    deleteProduct(item: any){
+      return this.http.delete(APIUrl + '/products/' + item);
+    }
 
   // End of product API
+
+
+
+
+
+
+
   //Defectivegoods API method
   getDefectiveGoodsList(): Observable<any[]> {
     return this.http.get<any[]>(APIUrl + '/defective/');

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
   selector: 'app-update-product',
@@ -7,9 +8,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateProductComponent implements OnInit {
 
-  constructor() { }
+  constructor(private updateProductService: SharedService) { }
+
+
+  @Input() product: any;
+  product_name: string;
+  category: string;
+  quantity: number;
+  status: string;
+  buying_price: number;
+  selling_price: number;
+  expiry_date: string;
+
 
   ngOnInit(): void {
+    this.product_name = this.product.product_name;
+    this.category = this.product.category;
+    this.quantity = this.product.quantity;
+    this.status = this.product.status;
+    this.buying_price = this.product.buying_price;
+    this.selling_price = this.product.selling_price;
+    this.expiry_date = this.product.expiry_date;   
+  }
+
+
+  updateProduct(){
+    var item = {product_name: this.product_name, 
+      category : this.category,
+      quantity: this.quantity,
+      status: this.status,
+      buying_price: this.buying_price,
+      selling_price: this.selling_price,
+      expiry_date: this.expiry_date};
+    this.updateProductService.updateProduct(item).subscribe(res => {
+      alert(res.toString());
+    });
   }
 
 }

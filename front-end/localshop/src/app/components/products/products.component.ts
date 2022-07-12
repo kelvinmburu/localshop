@@ -25,6 +25,11 @@ export class ProductsComponent implements OnInit {
   productData: any;
 
 
+  pageTitle:string;
+  ActivateUpdateComponent:boolean = false; 
+  product: any;
+
+
   form: any = {
     product_name: null,
     category: null,
@@ -36,17 +41,21 @@ export class ProductsComponent implements OnInit {
   };
   errorMessage = '';
 
+
+
   // Modal
-  closeResult: string | undefined;
-  constructor( private productService: SharedService) { }
+  // closeResult: string | undefined;
+  constructor( private productService: SharedService, private deleteService: SharedService) { }
 
   ngOnInit(): void {
     this.productService.getProductsList().subscribe((data) => {
       console.log(data);
 
       this.productData = data;
+
+      this.refreshProductsList();
     });
-    setTimeout(() => { this.ngOnInit(); }, 1000);
+    // setTimeout(() => { this.ngOnInit(); }, 1000);
   }
 
   //Submit form data
@@ -77,4 +86,35 @@ export class ProductsComponent implements OnInit {
       );
     f.reset()
   }
+
+
+  updateClick(item:any){
+    this.product=item;
+    this.pageTitle="Update Product";
+    this.ActivateUpdateComponent=true;  
+  }
+
+
+  deleteClick(item:any){ 
+    if (confirm("Are you sure you  want to delete this product?")){
+      this.deleteService.deleteProduct(item.id).subscribe(data => {
+        alert(data.toString());
+        this.refreshProductsList(); 
+      });
+    }
+  }
+
+
+  closeClick(){
+    this.ActivateUpdateComponent=false; 
+    this.refreshProductsList();
+  }
+
+
+  refreshProductsList(){
+    this.deleteService.getProductsList().subscribe(data =>{
+      this.productData=data; 
+    });
+  }
+
 }
