@@ -17,6 +17,8 @@ import { RequestComponent } from './components/request/request.component';
 import { AboutComponent } from './components/about/about.component';
 import { ContactComponent } from './components/contact/contact.component';
 
+import { UpdateProductComponent } from './components/products/update-product/update-product.component';
+import { RequestComponent } from './components/request/request.component';
 
 const routes: Routes = [
   
@@ -30,9 +32,10 @@ const routes: Routes = [
   {path: 'defective', component: DefectiveGoodsComponent},
   {path: 'reports', component: ReportComponent},
   {path: 'clerk', component: ClerkComponent},
-  {path: 'request', component: RequestComponent},
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent}
+  {path: 'update-product', component: UpdateProductComponent},
+  {path: 'request', component: RequestComponent}
 ];
 
 @NgModule({
