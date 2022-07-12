@@ -18,7 +18,6 @@ export class ProductsComponent implements OnInit {
     { id: 4, name: "Kitchen-Ware" },
     { id: 5, name: "Toys" }
   ];
-
   status = [
     { id: 1, name: "Paid" },
     { id: 2, name: "Not Paid" }
@@ -53,6 +52,7 @@ export class ProductsComponent implements OnInit {
 
       this.productData = data;
     });
+    setTimeout(() => { this.ngOnInit(); }, 1000);
   }
 
   //Submit form data

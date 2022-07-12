@@ -14,7 +14,8 @@
     <h3 class="title">Defective Goods</h3>
     <div class="container" id="defective-container">
         <h5 style="margin-top: 8px;">Add Defective Good</h5>
-        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
+        <!--  -->
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm"  novalidate>
           <!-- Product Name -->
           <div class="form-group">
             <div class="input-group">
@@ -32,9 +33,9 @@
           <br>
           <!-- Select category -->
           <div class="form-group">
-            <div class="input-group">
-              <select [(ngModel)]="form.category" name="category" class="form-select" required category>
-                <option disabled selected value="undefined">Select Category</option>
+            <div class="input-group" placeholder="No. of Items" >
+              <select [(ngModel)]="form.category" name="category" class="form-select" placeholder="No. of Items"  required category >
+                <!-- <option disabled selected value="undefined">Select Category</option> -->
                 <option *ngFor="let category of categories" [selected]="category.name" [ngValue]="category.name">{{category.name}}</option>
               </select>
             </div>
@@ -52,10 +53,7 @@
             <table class="table" id="defective-table">
                 <thead class="thead" id="defective-thead">
                     <th>Product Name</th>
-                    
-                   
                     <th>Quantity</th>
-                  
                     <th>Category</th>
                     
                 </thead>
@@ -64,9 +62,7 @@
                 <tr id="defective-tr" *ngFor="let def of defectiveGoodsData">
                     <td>{{def.goodname}}</td>
                     <td>{{def.quantity}}</td>
-                    
                     <td *ngIf="categories">{{def.category}}</td>
-                   
                 </tr>
               
             

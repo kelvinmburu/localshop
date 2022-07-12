@@ -78,7 +78,7 @@ export class SharedService {
     goodname:string, quantity:number, category:string
   ) {
     return this.http.post(APIUrl + '/defective/', {
-      goodname,quantity,category 
+      goodname,quantity,category
     });
   }
 
