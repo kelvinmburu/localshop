@@ -52,7 +52,8 @@
     <div class="container" style="border:1px solid #cecece;">
       <div class="d-grid gap-2 col-6 mx-auto btn-group d-flex justify-content-evenly">
         <br>
-        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" formControlName="categoryName" novalidate>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" formControlName="categoryName"
+          novalidate>
           <!-- Product Name -->
           <div class="form-group">
             <div class="input-group">
@@ -143,23 +144,24 @@
         <!-- </div> -->
       </div>
       <!-- </div> -->
-      <br>
-      <br>
-      <div class="d-flex justify-content-center">
-        <nav aria-label="Page navigation example" class="justify-content-center mx-auto">
-          <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-          </ul>
-        </nav>
-      </div>
-      <br>
     </div>
-    <!-- Modal form -->
+    <!-- </div> -->
+    <br>
+    <br>
+    <div class="d-flex justify-content-center">
+      <nav aria-label="Page navigation example" class="justify-content-center mx-auto">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+    <br>
   </div>
+  <!-- Modal form -->
   <app-footer></app-footer>
 </body>
 

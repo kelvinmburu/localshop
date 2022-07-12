@@ -65,7 +65,6 @@ def testApi(request):
 def productapi(request,id=0):
     if request.method == 'GET':
         product = Product.objects.all()
-
         product_serializer = ProductSerializer(product,many=True)
         return JsonResponse(product_serializer.data,safe=False)
 
@@ -79,7 +78,7 @@ def productapi(request,id=0):
 
     elif request.method == 'PUT':
         product_data= JSONParser().parse(request)
-        product = Product.objects.get(product_name=product_data['product_name'])
+        product = Product.objects.get(id=product_data['id'])
         product_serializer = ProductSerializer(product,data=product_data)
         if product_serializer.is_valid():
             product_serializer.save()
