@@ -14,12 +14,13 @@
     <h3 class="title">Defective Goods</h3>
     <div class="container" id="defective-container">
         <h5 style="margin-top: 8px;">Add Defective Good</h5>
-        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
+        <!--  -->
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm"  novalidate>
           <!-- Product Name -->
           <div class="form-group">
             <div class="input-group">
-              <input [(ngModel)]="form.good_name" name="defectivename" class="form-control" placeholder="Product Name"
-                type="text" required good_name #name="ngModel">
+              <input [(ngModel)]="form.goodname" name="defectivename" class="form-control" placeholder="Product Name"
+                type="text" required goodname #name="ngModel">
             </div>
           </div>
           <br>
@@ -33,10 +34,10 @@
          
           <!-- Select category -->
           <div class="form-group">
-            <div class="input-group">
+            <div class="input-group" placeholder="No. of Items" >
              
-              <select [(ngModel)]="form.category" name="category" class="form-select" formControlName="category" required category>
-                <option disabled selected value="undefined">Select Category</option>
+              <select [(ngModel)]="form.category" name="category" class="form-select" placeholder="No. of Items"  required category >
+                <!-- <option disabled selected value="undefined">Select Category</option> -->
                 <option *ngFor="let category of categories" [selected]="category.name" [ngValue]="category.name">{{category.name}}</option>
               </select>
             </div>
@@ -63,7 +64,7 @@
                 <!-- defectiveGoodsData -->
               
                 <tr id="defective-tr" *ngFor="let def of defectiveGoodsData">
-                    <td>{{def.good_name}}</td>
+                    <td>{{def.goodname}}</td>
                     <td>{{def.quantity}}</td>
                     
                     <td *ngIf="categories">{{def.category}}</td>
