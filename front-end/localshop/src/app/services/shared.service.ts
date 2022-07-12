@@ -126,12 +126,6 @@ export class SharedService {
 
 
 
-
-
-
-
-
-
   // // Login API method
   // loginUser(val:any) {
   //   return this.http.post(this.APIUrl + '/login/', val);

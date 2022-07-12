@@ -14,6 +14,10 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { DefectiveGoodsComponent } from './components/defective-goods/defective-goods.component';
 import { ProductsComponent } from './components/products/products.component';
 import { StoresComponent } from './components/stores/stores.component'; 
+import { RequestComponent } from './components/request/request.component';
+import { ClerkComponent } from './components/clerk/clerk.component'; 
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component'; 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -24,6 +28,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RequestComponent } from './components/request/request.component';
 import { ClerkComponent } from './components/clerk/clerk.component';
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
+
 
 
 
@@ -43,6 +48,8 @@ import { UpdateProductComponent } from './components/products/update-product/upd
     RequestComponent,
     ClerkComponent,
     StoresComponent,
+    AboutComponent,
+    ContactComponent,
     UpdateProductComponent,
   ],
   imports: [

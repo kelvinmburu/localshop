@@ -31,11 +31,9 @@
             </div>
           </div>
           <br>
-         
           <!-- Select category -->
           <div class="form-group">
             <div class="input-group" placeholder="No. of Items" >
-             
               <select [(ngModel)]="form.category" name="category" class="form-select" placeholder="No. of Items"  required category >
                 <!-- <option disabled selected value="undefined">Select Category</option> -->
                 <option *ngFor="let category of categories" [selected]="category.name" [ngValue]="category.name">{{category.name}}</option>
@@ -44,20 +42,18 @@
           </div>
           <br>
           <button type="submit" class="btn" style="background-color: #023047; color: #ffffff;">Add</button>
-         
           </form>
       </div>
       
     <div class="container">
         <div class="defective mt-5" id="">
-         
+￼
+
+
             <table class="table" id="defective-table">
                 <thead class="thead" id="defective-thead">
                     <th>Product Name</th>
-                    
-                   
                     <th>Quantity</th>
-                  
                     <th>Category</th>
                     
                 </thead>
@@ -66,9 +62,7 @@
                 <tr id="defective-tr" *ngFor="let def of defectiveGoodsData">
                     <td>{{def.goodname}}</td>
                     <td>{{def.quantity}}</td>
-                    
                     <td *ngIf="categories">{{def.category}}</td>
-                   
                 </tr>
               
             

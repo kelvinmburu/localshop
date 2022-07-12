@@ -13,6 +13,9 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { DefectiveGoodsComponent } from './components/defective-goods/defective-goods.component';
 import { ReportComponent } from './components/report/report.component'; 
 import { ClerkComponent } from './components/clerk/clerk.component'; 
+import { RequestComponent } from './components/request/request.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/contact/contact.component';
 
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
 import { RequestComponent } from './components/request/request.component';
@@ -29,7 +32,8 @@ const routes: Routes = [
   {path: 'defective', component: DefectiveGoodsComponent},
   {path: 'reports', component: ReportComponent},
   {path: 'clerk', component: ClerkComponent},
-
+  {path: 'about', component: AboutComponent},
+  {path: 'contact', component: ContactComponent}
   {path: 'update-product', component: UpdateProductComponent},
   {path: 'request', component: RequestComponent}
 ];
