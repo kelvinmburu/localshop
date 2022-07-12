@@ -11,7 +11,7 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class SharedService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   // Admin GET & POST service
   getAdmin(): Observable<any> {
@@ -69,16 +69,40 @@ export class SharedService {
       date_received
     });
   }
-  // // defectivegoods API method
+
+  updateProductList(product_name: string,
+    category: string,
+    quantity: number,
+    status: string,
+    buying_price: number,
+    selling_price: number,
+    expiry_date: Date,
+    date_received: Date) {
+      return this.http.put(APIUrl + '/products/<int:id>', {
+      product_name,
+      category,
+      quantity,
+      status,
+      buying_price,
+      selling_price,
+      expiry_date,
+      date_received
+      })
+    }
+
+
+
+  // End of product API
+  //Defectivegoods API method
   getDefectiveGoodsList(): Observable<any[]> {
     return this.http.get<any[]>(APIUrl + '/defective/');
   }
-    //  name, quantity, category
+  //  name, quantity, category
   addNewDefectiveGood(
-    good_name:string, quantity:number, category:string
+    good_name: string, quantity: number, category: string
   ) {
     return this.http.post(APIUrl + '/defective/', {
-      good_name,quantity,category
+      good_name, quantity, category
     });
   }
 

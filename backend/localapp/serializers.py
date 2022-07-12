@@ -17,7 +17,7 @@ class ClerkSerializer(serializers.ModelSerializer):
 class AdminSerializer(serializers.ModelSerializer):
     class Meta:
         model = Admin
-        fields = ['name', 'email', 'password']
+        fields = '__all__'
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
