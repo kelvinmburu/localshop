@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm, FormBuilder, Validators } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 import { SharedService } from 'src/app/services/shared.service';
 
 @Component({
@@ -10,7 +10,6 @@ import { SharedService } from 'src/app/services/shared.service';
 })
 export class ProductsComponent implements OnInit {
   // Drop-down functionality
-
  
   categories = [
     { id: 1, name: "Electronics" },
@@ -23,8 +22,6 @@ export class ProductsComponent implements OnInit {
     { id: 1, name: "Paid" },
     { id: 2, name: "Not Paid" }
   ]
-
-
 
   productData: any;
 
@@ -42,10 +39,7 @@ export class ProductsComponent implements OnInit {
 
   // Modal
   closeResult: string | undefined;
-  constructor( private productService: SharedService, public fb: FormBuilder) { }
-
-  // Dropdown
- 
+  constructor( private productService: SharedService) { }
 
   ngOnInit(): void {
     this.productService.getProductsList().subscribe((data) => {
@@ -57,9 +51,7 @@ export class ProductsComponent implements OnInit {
   }
 
   //Submit form data
-  // f : NgForm
   onSubmit(f : NgForm) {
-
     const { product_name,
       category,
       quantity,

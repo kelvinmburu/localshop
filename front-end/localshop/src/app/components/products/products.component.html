@@ -17,10 +17,9 @@
 
 <body>
   <app-navbar></app-navbar>
-
   <div>
     <input type="checkbox" id="check">
-    <label for="check" style="position: fixed;">
+    <label for="check">
       <i class="fas fa-bars" id="btn" style="background-color: #219EBC;"></i>
       <i class="fas fa-times" id="cancel"></i>
     </label>
@@ -43,17 +42,13 @@
         <span>Logout</span>
       </a>
     </div>
-  </div>
-  <!-- Start of main container -->
-  <div>
     <div style="padding: 10px;">
       <h2 class="text-center fw-bold">Products</h2>
     </div>
     <div class="container" style="border:1px solid #cecece;">
       <div class="d-grid gap-2 col-6 mx-auto btn-group d-flex justify-content-evenly">
         <br>
-        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" formControlName="categoryName"
-          novalidate>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
           <!-- Product Name -->
           <div class="form-group">
             <div class="input-group">
@@ -141,8 +136,6 @@
             </div>
           <!-- </div> -->
         </div>
-        <!-- </div> -->
-      </div>
       <!-- </div> -->
     </div>
     <!-- </div> -->

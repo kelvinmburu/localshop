@@ -17,8 +17,6 @@ import { ClerkComponent } from './components/clerk/clerk.component';
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
 import { RequestComponent } from './components/request/request.component';
 
-
-
 const routes: Routes = [
   
   {path: '', component: LandingpageComponent},
@@ -31,6 +29,7 @@ const routes: Routes = [
   {path: 'defective', component: DefectiveGoodsComponent},
   {path: 'reports', component: ReportComponent},
   {path: 'clerk', component: ClerkComponent},
+
   {path: 'update-product', component: UpdateProductComponent},
   {path: 'request', component: RequestComponent}
 ];
