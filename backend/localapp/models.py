@@ -19,7 +19,7 @@ class Admin(models.Model):
 
     def __str__(self):
         return self.name
-    
+
 
 
 class Clerk(models.Model): 

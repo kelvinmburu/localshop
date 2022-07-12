@@ -19,12 +19,8 @@ def HomePageView(request):
     if request.method == 'GET':
         return render(request, 'index.html', context=None)
 
-# admin api,products,orders,defectivegoods,
-
-#
-
 @csrf_exempt
-def adminapi(request,id):
+def adminapi(request,id=0):
     if request.method == 'GET':
         admin = Admin.objects.all() 
         admin_serializer = AdminSerializer(admin,many=True)
@@ -40,7 +36,7 @@ def adminapi(request,id):
 
     elif request.method == 'PUT':
         admin_data = JSONParser().parse(request)
-        admin = Admin.objects.get(id=id)
+        admin = Admin.objects.get(id=admin_data['id'])
         admin_serializer = AdminSerializer(admin,data=admin_data)
         if admin_serializer.is_valid():
             admin_serializer.save()
@@ -71,7 +67,7 @@ def productapi(request,id=0):
 
     elif request.method == 'PUT':
         product_data = JSONParser().parse(request)
-        product = Product.objects.get(id=id)
+        product = Product.objects.get(id=product_data['id'])
         product_serializer = ProductSerializer(product,data=product_data)
         if product_serializer.is_valid():
             product_serializer.save() 
@@ -145,7 +141,6 @@ def orderapi(request,id=0):
         order.delete()
         return JsonResponse("order deleted successfully",safe=False)
 
-# defective goodsapi
 
 
 @csrf_exempt
