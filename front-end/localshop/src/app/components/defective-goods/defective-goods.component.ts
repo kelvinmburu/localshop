@@ -24,7 +24,7 @@ export class DefectiveGoodsComponent implements OnInit {
   defectiveGoodsData:any
 
   form: any = {
-    good_name: null, 
+    goodname: null, 
     quantity:null,
     category:null
 
@@ -47,13 +47,13 @@ export class DefectiveGoodsComponent implements OnInit {
 
   onSubmit(f: NgForm){
     const {
-      good_name,
+      goodname,
       quantity,
       category
     } = this.form;
     console.log(this.form)
     this.defectiveService.addNewDefectiveGood(
-      good_name,
+      goodname,
       quantity,
       category
     ).subscribe(

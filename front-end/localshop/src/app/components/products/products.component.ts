@@ -11,7 +11,6 @@ import { SharedService } from 'src/app/services/shared.service';
 export class ProductsComponent implements OnInit {
   // Drop-down functionality
 
- 
   categories = [
     { id: 1, name: "Electronics" },
     { id: 2, name: "Foods" },
