@@ -11,7 +11,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.utils import json
 from rest_framework import serializers
-from rest_framework import viewsets
+# from rest_framework import viewsets
 
 
 # Create your views here.
@@ -24,9 +24,9 @@ def HomePageView(request):
 #
 
 @csrf_exempt
-def adminapi(request,id=0):
+def adminapi(request,id):
     if request.method == 'GET':
-        admin = Admin.objects.all()
+        admin = Admin.objects.all() 
         admin_serializer = AdminSerializer(admin,many=True)
         return JsonResponse(admin_serializer.data,safe=False)
 
@@ -40,7 +40,7 @@ def adminapi(request,id=0):
 
     elif request.method == 'PUT':
         admin_data = JSONParser().parse(request)
-        admin = Admin.objects.get(AdminId=admin_data['AdminId'])
+        admin = Admin.objects.get(id=id)
         admin_serializer = AdminSerializer(admin,data=admin_data)
         if admin_serializer.is_valid():
             admin_serializer.save()
@@ -48,16 +48,9 @@ def adminapi(request,id=0):
         return JsonResponse("Admin not updated",safe=False)
 
     elif request.method == 'DELETE':
-       admin = Admin.objects.get(AdminId=id)
-       admin.delete()
-       return JsonResponse("admin deleted successfully",safe=False)
-
-
-@csrf_exempt
-def testApi(request):
-    if request.method == 'GET':
-        items = ['bread', 'milk', 'shoes', 'books']
-
+        admin = Admin.objects.get(id=id)
+        admin.delete()
+        return JsonResponse("admin deleted successfully",safe=False)
 
 
 # productsapi
@@ -65,7 +58,6 @@ def testApi(request):
 def productapi(request,id=0):
     if request.method == 'GET':
         product = Product.objects.all()
-
         product_serializer = ProductSerializer(product,many=True)
         return JsonResponse(product_serializer.data,safe=False)
 
@@ -73,31 +65,31 @@ def productapi(request,id=0):
         product_data = JSONParser().parse(request)
         product_serializer = ProductSerializer(data=product_data)
         if product_serializer.is_valid():
-            product_serializer.save()
+            product_serializer.save() 
             return JsonResponse("Product added successfully",safe=False)
-        return JsonResponse("product not added,try again",safe=False)
+        return JsonResponse("product not added,try again",safe=False) 
 
     elif request.method == 'PUT':
-        product_data= JSONParser().parse(request)
-        product = Product.objects.get(product_name=product_data['product_name'])
+        product_data = JSONParser().parse(request)
+        product = Product.objects.get(id=id)
         product_serializer = ProductSerializer(product,data=product_data)
         if product_serializer.is_valid():
-            product_serializer.save()
+            product_serializer.save() 
             return JsonResponse("Product updated successfully",safe=False)
         return JsonResponse("Product not updated",safe=False)
 
     elif request.method == 'DELETE':
-       product = Product.objects.get(id=id)
-       product.delete()
-       return JsonResponse("product deleted successfully",safe=False)
+        product = Product.objects.get(id=id)
+        product.delete()
+        return JsonResponse("product deleted successfully",safe=False)
 
 
 # clerkapi
 @csrf_exempt
-def clerkapi(request,id=0):
+def clerkapi(request, id=0):
     if request.method == 'GET':
-        my_clerk = Clerk.objects.all()
-        clerk_serializer = ClerkSerializer(my_clerk,many=True)
+        clerk = Clerk.objects.all()
+        clerk_serializer = ClerkSerializer(clerk,many=True)
         return JsonResponse(clerk_serializer.data,safe=False)
 
     elif request.method == 'POST':
@@ -107,11 +99,12 @@ def clerkapi(request,id=0):
             clerk_serializer.save()
             return JsonResponse("Clerk  added successfully",safe=False)
         return JsonResponse("Clerk not added,try again",safe=False)
+        
 
     elif request.method == 'PUT':
         clerk_data= JSONParser().parse(request)
-        clerk = Clerk.objects.get(name=clerk_data['name'])
-        clerk_serializer = ClerkSerializer(clerk,data=clerk_data)
+        clerk = Clerk.objects.get(id=clerk_data['id'])
+        clerk_serializer = ClerkSerializer(clerk, data=clerk_data)
         if clerk_serializer.is_valid():
             clerk_serializer.save()
             return JsonResponse("clerk updated successfully",safe=False)
@@ -140,7 +133,7 @@ def orderapi(request,id=0):
 
     elif request.method == 'PUT':
         order_data= JSONParser().parse(request)
-        order = Order.objects.get(ordered_product=order_data['ordered_product'])
+        order = Order.objects.get(id=order_data['id'])
         order_serializer = OrderSerializer(order,data=order_data)
         if order_serializer.is_valid():
             order_serializer.save()
@@ -172,7 +165,7 @@ def defectivegoodsapi(request,id=0):
 
     elif request.method == 'PUT':
         defective_data= JSONParser().parse(request)
-        defective = Defectivegood.objects.get(name=defective_data['name'])
+        defective = Defectivegood.objects.get(id=defective_data['id'])
         defective_serializer = DefectiveGoodsSerializer(defective,data=defective_data)
         if defective_serializer.is_valid():
             defective_serializer.save()
@@ -183,41 +176,3 @@ def defectivegoodsapi(request,id=0):
         defective = Defectivegood.objects.get(id=id)
         defective.delete()
         return JsonResponse("Defective good deleted successfully",safe=False)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def LinksPageView(request):
-    if request.method == 'GET':
-        return render(request, 'links.html', context=None)
-
-
-def Customers(request):
-        name='liran'
-        if request.method == 'GET':
-            return HttpResponse('{ "name":"' + name + '", "age":31, "city":"New York" }')
-
-@api_view(["POST"])
-def CalcTest(x1):
-    try:
-        x=json.loads(x1.body)
-        y=str(x*100)
-        return JsonResponse("Result:"+y,safe=False)
-    except ValueError as e:
-        return Response(e.args[0],status.HTTP_400_BAD_REQUEST)
-def CustViewSet(request):
-    ctx = {}
-    return render(request, '', ctx)

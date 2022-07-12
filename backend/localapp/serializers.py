@@ -12,12 +12,12 @@ class ProductSerializer(serializers.ModelSerializer):
 class ClerkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Clerk
-        fields = '__all__'
+        fields = '__all__'  
 
 class AdminSerializer(serializers.ModelSerializer):
     class Meta:
         model = Admin
-        fields = ['name', 'email', 'password']
+        fields = '__all__' 
 
 class OrderSerializer(serializers.ModelSerializer):
     class Meta:
