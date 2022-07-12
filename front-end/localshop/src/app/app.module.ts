@@ -23,6 +23,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RequestComponent } from './components/request/request.component';
 import { ClerkComponent } from './components/clerk/clerk.component';
+import { UpdateProductComponent } from './components/products/update-product/update-product.component';
 
 
 
@@ -42,6 +43,7 @@ import { ClerkComponent } from './components/clerk/clerk.component';
     RequestComponent,
     ClerkComponent,
     StoresComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,
