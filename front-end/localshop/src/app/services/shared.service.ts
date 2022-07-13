@@ -63,23 +63,23 @@ export class SharedService {
   addNewProduct(
     product_name: string,
     category: string,
-    quantity: number,
     status: string,
+    quantity: number,
+    expiry_date: Date,
     buying_price: number,
     selling_price: number,
-    expiry_date: Date,
     date_received: Date
   ) {
     return this.http.post(APIUrl + '/products/', {
       product_name,
       category,
-      quantity,
       status,
+      quantity,
+      expiry_date,
       buying_price,
       selling_price,
-      expiry_date,
       date_received
-    });
+    }, httpOptions);
   }
 
   // updateProductList(

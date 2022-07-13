@@ -55,7 +55,7 @@ export class AddUserComponent implements OnInit {
 
   updateClick(item:any){
     this.data=item;
-    this.pageTitle="Update Admin Details";
+    this.pageTitle="Update Admin";
     this.ActivateUpdateComponent=true;  
   }
 

@@ -54,7 +54,7 @@ export class ClerkComponent implements OnInit {
 
     updateClick(item:any){
       this.detail=item;
-      this.pageTitle="Update Defective Product";
+      this.pageTitle="Update Clerk";
       this.ActivateUpdateComponent=true;  
     }
 

@@ -57,14 +57,7 @@
             </div>
           </div>
           <br>
-          <!-- Expiry Date -->
-          <div class="form-group">
-            <div class="input-group">
-              <input name="expiry_date" [(ngModel)]="form.expiry_date" class="form-control" placeholder="Expiry Date"
-                type="date" required expiry_date #name="ngModel">
-            </div>
-          </div>
-          <br>
+
           <!-- Select category -->
           <div class="form-group">
             <div class="input-group" placeholder="No. of Items" >
@@ -75,6 +68,18 @@
             </div>
           </div>
           <br>
+
+          <!-- Item Status -->
+          <div class="form-group">
+          <div class="input-group">
+            <select name="status" class="form-select" required status [(ngModel)]="form.status">
+              <!-- <option disabled selected value="undefined">Status</option> -->
+              <option *ngFor="let state of status" [ngValue]="state.name">{{state.name}}</option>
+            </select>
+          </div>
+          </div>
+          <br>
+
           <!-- Items Quantity -->
           <div class="form-group">
             <div class="input-group">
@@ -83,16 +88,16 @@
             </div>
           </div>
           <br>
-          <!-- Item Status -->
+
+          <!-- Expiry Date -->
           <div class="form-group">
             <div class="input-group">
-              <select name="status" class="form-select" required status [(ngModel)]="form.status">
-                <!-- <option disabled selected value="undefined">Status</option> -->
-                <option *ngFor="let state of status" [ngValue]="state.name">{{state.name}}</option>
-              </select>
+              <input name="expiry_date" [(ngModel)]="form.expiry_date" class="form-control" placeholder="Expiry Date"
+                type="date" required expiry_date #name="ngModel">
             </div>
           </div>
           <br>
+
           <!-- Buying price -->
           <div class="form-group">
             <div class="input-group">
@@ -154,11 +159,11 @@
             <div class="col-md-4 mx-2 card d-flex mb-2 justify-content-around" style="width: 18rem;" *ngFor="let product of productData">
               <div class="card-body">
                 <h5 class="card-title">{{product.product_name}}</h5>
-                <p class="card-text"><strong>Price:</strong> {{product.buying_price}}</p>
-                <p class="card-text"><strong>Quantity:</strong> {{product.quantity}}</p>
-                <p class="card-text"><strong>Selling Price:</strong> {{product.selling_price}}</p>
                 <p class="card-text"><strong>Category:</strong> {{product.category}}</p>
                 <p class="card-text"><strong>Status:</strong> {{product.status}}</p>
+                <p class="card-text"><strong>Quantity:</strong> {{product.quantity}}</p>
+                <p class="card-text"><strong>Price:</strong> {{product.buying_price}}</p>
+                <p class="card-text"><strong>Selling Price:</strong> {{product.selling_price}}</p>
                 <p class="card-text"><strong>Date Received:</strong> {{product.date_received|date: 'dd/MM/yyyy'}}</p>
 
               <button 

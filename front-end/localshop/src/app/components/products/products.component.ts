@@ -33,11 +33,12 @@ export class ProductsComponent implements OnInit {
   form: any = {
     product_name: null,
     category: null,
-    quantity: null,
     status: null,
+    quantity: null,
+    expiry_date: null,
     buying_price: null,
-    selling_price: null,
-    expiry_date: null
+    selling_price: null
+    
   };
   errorMessage = '';
 
@@ -62,20 +63,20 @@ export class ProductsComponent implements OnInit {
   onSubmit(f : NgForm) {
     const { product_name,
       category,
-      quantity,
       status,
+      quantity,
+      expiry_date,
       buying_price,
       selling_price,
-      expiry_date,
-    date_received } = this.form;
+    date_received} = this.form;
     console.log(this.form);
     this.productService.addNewProduct(product_name,
       category,
-      quantity,
       status,
+      quantity,
+      expiry_date,
       buying_price,
       selling_price,
-      expiry_date,
       date_received).subscribe(
         (data) => {
           console.log(data);
