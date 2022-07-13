@@ -1,1 +1,25 @@
-<p>report works!</p>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+<h3>Product Name vs Quantity</h3>
+
+<div *ngIf="chart" style="width:60vw;height:40vw">
+    <canvas id="canvas">{{chart}}</canvas>
+</div>
+
+
+<!-- <div *ngIf="chart" style="width:60vw;height:60vw">
+    <canvas id="canvas2">{{chart}}</canvas>
+</div> -->
+<app-footer></app-footer>
+
+</body>
+</html>
