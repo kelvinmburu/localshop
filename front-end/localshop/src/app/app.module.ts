@@ -25,8 +25,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {SharedService} from './services/shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { RequestComponent } from './components/request/request.component';
-import { ClerkComponent } from './components/clerk/clerk.component';
+
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
 
 
