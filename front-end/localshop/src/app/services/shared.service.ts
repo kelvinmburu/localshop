@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'; //Handle asynchronous requests and responses
+import { map } from 'rxjs/operators';
+
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -16,7 +18,7 @@ export class SharedService {
 
   // Authentication service
   login(username: string, password: string){
-    return this.http.post<any>(APIUrl + '/api/auth/', {username, password}, httpOptions).pipe(
+    return this.http.post<any>(this.APIUrl + '/api/auth/', {username, password}, httpOptions).pipe(
       map(user => {
         if (user && user.token){
           localStorage.setItem("currentUser", JSON.stringify(user));
@@ -44,11 +46,11 @@ export class SharedService {
   }
 
   updateAdmin(item:any){
-    return this.http.put(APIUrl + '/newadmin/<int:id>', item);
+    return this.http.put(this.APIUrl + '/newadmin/<int:id>', item);
   }
 
   removeAdmin(item: any){
-    return this.http.delete(APIUrl + '/newadmin/' + item);
+    return this.http.delete(this.APIUrl + '/newadmin/' + item);
   }
 
 
@@ -186,23 +188,13 @@ export class SharedService {
 
 
   //Defectivegoods API method
-  getDefectiveGoodsList(): Observable<any[]> {
-    return this.http.get<any[]>(APIUrl + '/defective/');
-  }
-
-
-  addNewDefectiveGood( goodname:string, quantity:number, category:string) {
-    return this.http.post(APIUrl + '/defective/', { goodname,quantity,category });
-  }
-
-
   updateDefectiveGood(item:any){
-    return this.http.put(APIUrl + '/defective/<int:id>', item);
+    return this.http.put(this.APIUrl + '/defective/<int:id>', item);
   }
 
 
   deleteDefective(item: any){
-    return this.http.delete(APIUrl + '/defective/' + item);
+    return this.http.delete(this.APIUrl + '/defective/' + item);
   }
 
 
