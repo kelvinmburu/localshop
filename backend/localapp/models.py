@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# CATEGORY = (
-#     ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
-# )
+CATEGORY = (
+    ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
+)
 
 # CATEGORY = [
 #     ('Electronics',('Electronics')),

@@ -12,7 +12,7 @@ urlpatterns = [
     path('newadmin/<int:id>',views.adminapi,name='admin'), # for REST API
 
     path('products/',views.productapi,name="products"),
-    path('products/<int: id>',views.productapi,name="products"),
+    path('products/<int:id>',views.productapi,name="products"),
 
     path('clerks/',views.clerkapi,name="clerks"),
     path('clerks/<int:id>',views.clerkapi,name="clerks"),

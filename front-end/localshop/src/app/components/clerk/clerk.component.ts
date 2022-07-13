@@ -12,6 +12,12 @@ export class ClerkComponent implements OnInit {
 
   clerkDetails:any;
 
+
+  pageTitle:string;
+  ActivateUpdateComponent:boolean = false; 
+  detail: any;  
+
+
   form: any = {
     fullname: null,
     email: null,
@@ -46,9 +52,16 @@ export class ClerkComponent implements OnInit {
     }
 
 
+    updateClick(item:any){
+      this.detail=item;
+      this.pageTitle="Update Defective Product";
+      this.ActivateUpdateComponent=true;  
+    }
+
+
 
   deleteClick(item:any){ 
-    if (confirm("Are you sure you  want to delete this item?")){
+    if (confirm("Are you sure you  want to delete this clerk?")){
       this.removeClerkService.removeClerk(item.id).subscribe(data => {
         alert(data.toString());
         this.refreshClerksList(); 
@@ -57,9 +70,16 @@ export class ClerkComponent implements OnInit {
   }
 
 
+  closeClick(){
+    this.ActivateUpdateComponent=false; 
+    this.refreshClerksList();
+  }
+
+
   refreshClerksList(){
     this.removeClerkService.getClerks().subscribe(data =>{
       this.clerkDetails=data; 
     });
   }
+  
 }

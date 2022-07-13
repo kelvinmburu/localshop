@@ -27,6 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
 import { UpdateDefectiveComponent } from './components/defective-goods/update-defective/update-defective.component';
+import { UpdateClerkComponent } from './components/clerk/update-clerk/update-clerk.component';
 
 
 
@@ -51,6 +52,7 @@ import { UpdateDefectiveComponent } from './components/defective-goods/update-de
     ContactComponent,
     UpdateProductComponent,
     UpdateDefectiveComponent,
+    UpdateClerkComponent,
   ],
   imports: [
     BrowserModule,

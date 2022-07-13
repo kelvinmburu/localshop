@@ -47,6 +47,34 @@
   <br>
 
 
+
+
+    <!-- Update Clerks Modal -->
+    <div class="modal fade" id="updateClerksModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">{{pageTitle}}</h5>
+            <button 
+              type="button" 
+              class="close" 
+              data-bs-dismiss="modal" 
+              aria-label="Close"
+              (click)="closeClick()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div> 
+          <div class="modal-body">
+            <app-update-clerk [detail]="detail" *ngIf="ActivateUpdateComponent"></app-update-clerk>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Update Clerks Modal -->
+
+
+
+
   <div class="container">
     <h3 class="fw-bold" style="text-align:center; padding: 10px;">All Clerks</h3>
     <hr class="bg-dark border-1 border-top border-dark">
@@ -71,7 +99,8 @@
                 type="button" 
                 class="btn btn-light mr-1"
                 data-bs-toggle="modal" 
-                data-bs-target="#updateDefectiveGoodModal"  
+                data-bs-target="#updateClerksModal"
+                (click)="updateClick(detail)"  
                 data-backdrop="static"
                 style="margin-right: 30px;">
                 <!-- Update icon  -->

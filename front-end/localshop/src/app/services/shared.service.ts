@@ -32,6 +32,10 @@ export class SharedService {
     return this.http.post(APIUrl + '/clerks/', { name, email, password }, httpOptions);
   }
 
+  updateClerk(item:any){
+    return this.http.put(APIUrl + '/clerks/<int:id>', item);
+  }
+
   removeClerk(item: any){
     return this.http.delete(APIUrl + '/clerks/' + item);
   }
