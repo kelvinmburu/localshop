@@ -20,6 +20,11 @@ export class DefectiveGoodsComponent implements OnInit {
 
   defectiveGoodsData:any
 
+
+  pageTitle:string;
+  ActivateUpdateComponent:boolean = false; 
+  def: any; 
+
   form: any = {
     goodname: null, 
     quantity:null,
@@ -66,6 +71,13 @@ export class DefectiveGoodsComponent implements OnInit {
   }
 
 
+  updateClick(item:any){
+    this.def=item;
+    this.pageTitle="Update Defective Product";
+    this.ActivateUpdateComponent=true;  
+  }
+
+
 
   deleteClick(item:any){ 
     if (confirm("Are you sure you  want to delete this item?")){
@@ -75,6 +87,13 @@ export class DefectiveGoodsComponent implements OnInit {
       });
     }
   }
+
+
+  closeClick(){
+    this.ActivateUpdateComponent=false; 
+    this.refreshDefectiveGoodsList();
+  }
+
 
   refreshDefectiveGoodsList(){
     this.deleteDefectiveService.getProductsList().subscribe(data =>{

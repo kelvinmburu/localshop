@@ -44,21 +44,41 @@
           <button type="submit" class="btn" style="background-color: #023047; color: #ffffff;">Add</button>
           </form>
       </div>
-      
+
+
+      <!-- Update Defective Goods Modal -->
+      <div class="modal fade" id="updateDefectiveGoodModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">{{pageTitle}}</h5>
+              <button 
+                type="button" 
+                class="close" 
+                data-bs-dismiss="modal" 
+                aria-label="Close"
+                (click)="closeClick()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <app-update-defective [def]="def" *ngIf="ActivateUpdateComponent"></app-update-defective>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Update Product Modal -->
+
+
     <div class="container">
         <div class="defective mt-5" id="">
-￼
-
-
             <table class="table" id="defective-table">
                 <thead class="thead" id="defective-thead">
                     <th>Product Name</th>
                     <th>Quantity</th>
                     <th>Category</th>
-                    
                 </thead>
                 <!-- defectiveGoodsData -->
-              
                 <tr id="defective-tr" *ngFor="let def of defectiveGoodsData">
                     <td>{{def.goodname}}</td>
                     <td>{{def.quantity}}</td>
@@ -68,7 +88,8 @@
                         type="button" 
                         class="btn btn-light mr-1"
                         data-bs-toggle="modal" 
-                        data-bs-target="#updateProductModal" 
+                        data-bs-target="#updateDefectiveGoodModal"  
+                        (click)="updateClick(def)"
                         data-backdrop="static"
                         style="margin-right: 30px;">
                         <!-- Update icon  -->
@@ -86,14 +107,10 @@
                       </button> 
                     </td>
                 </tr>
-              
-            
-            
             </table>
         </div>
         
     </div>
-  
     <app-footer></app-footer> 
 </body>
 </html>

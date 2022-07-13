@@ -106,6 +106,12 @@ export class SharedService {
     return this.http.post(APIUrl + '/defective/', { goodname,quantity,category });
   }
 
+
+  updateDefectiveGood(item:any){
+    return this.http.put(APIUrl + '/defective/<int:id>', item);
+  }
+
+
   deleteDefective(item: any){
     return this.http.delete(APIUrl + '/defective/' + item);
   }
