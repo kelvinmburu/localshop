@@ -46,12 +46,13 @@
       <h2 class="text-center fw-bold">Products</h2>
     </div>
     <div class="container" style="border:1px solid #cecece;">
-      <div class="d-grid gap-2 col-6 mx-auto btn-group d-flex justify-content-evenly">
+      <div class="d-grid col-12 mx-auto btn-group d-flex ">
         <br>
         <form name="form" (ngSubmit)="f.form.valid && onSubmit(f)" #f="ngForm" novalidate>
           <!-- Product Name -->
           <div class="form-group">
             <div class="input-group">
+              
               <input name="product_name" [(ngModel)]="form.product_name" class="form-control" placeholder="Product Name"
                 type="text" required product_name #name="ngModel">
             </div>
@@ -60,9 +61,10 @@
 
           <!-- Select category -->
           <div class="form-group">
-            <div class="input-group" placeholder="No. of Items" >
-              <select [(ngModel)]="form.category" name="category" class="form-select" placeholder="No. of Items"  required category >
-                <!-- <option disabled selected value="undefined">Select Category</option> -->
+            <div class="input-group" >
+             
+              <select [(ngModel)]="form.category" name="category" class="form-select" required category >
+                <option [ngValue]="null" hidden>Select one category</option>
                 <option *ngFor="let category of categories" [selected]="category.name" [ngValue]="category.name">{{category.name}}</option>
               </select>
             </div>
@@ -92,8 +94,11 @@
           <!-- Expiry Date -->
           <div class="form-group">
             <div class="input-group">
-              <input name="expiry_date" [(ngModel)]="form.expiry_date" class="form-control" placeholder="Expiry Date"
-                type="date" required expiry_date #name="ngModel">
+
+              <select name="status" class="form-select" required status [(ngModel)]="form.status">
+                <option [ngValue]="null" hidden >Status</option>
+                <option *ngFor="let state of status" [ngValue]="state.name">{{state.name}}</option>
+              </select>
             </div>
           </div>
           <br>
@@ -157,13 +162,15 @@
         <div class="row">
           <!-- <div class="d-flex"> -->
             <div class="col-md-4 mx-2 card d-flex mb-2 justify-content-around" style="width: 18rem;" *ngFor="let product of productData">
-              <div class="card-body">
+              <div class="card-body" id="prod-card">
                 <h5 class="card-title">{{product.product_name}}</h5>
                 <p class="card-text"><strong>Category:</strong> {{product.category}}</p>
                 <p class="card-text"><strong>Status:</strong> {{product.status}}</p>
                 <p class="card-text"><strong>Quantity:</strong> {{product.quantity}}</p>
                 <p class="card-text"><strong>Price:</strong> {{product.buying_price}}</p>
                 <p class="card-text"><strong>Selling Price:</strong> {{product.selling_price}}</p>
+                <p class="card-text"><strong>Category:</strong> {{product.category}}</p>
+                <p class="card-text"><strong>Status:</strong> {{product.status}}</p>
                 <p class="card-text"><strong>Date Received:</strong> {{product.date_received|date: 'dd/MM/yyyy'}}</p>
 
               <button 

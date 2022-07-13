@@ -42,12 +42,29 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'localapp',
     'rest_framework',
+    'rest_framework.authtoken',
     "corsheaders",
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
+    "http://127.0.0.1:4200"
 ]
+
+CORS_ALLOWED_METHODS = [
+    'PUT',
+    'GET',
+    'POST'
+]
+
+# Rest Framework
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
 
 
 CORS_ALLOW_ALL_ORIGINS: False 
@@ -71,7 +88,7 @@ ROOT_URLCONF = 'localproje.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

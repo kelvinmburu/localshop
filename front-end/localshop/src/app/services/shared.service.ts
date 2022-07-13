@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'; //Handle asynchronous requests and responses
-const APIUrl = 'http://127.0.0.1:8000';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -11,15 +10,37 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class SharedService {
+  private APIUrl = 'https://localshopinventory.herokuapp.com';
   constructor(private http: HttpClient) { }
+
+
+  // Authentication service
+  login(username: string, password: string){
+    return this.http.post<any>(APIUrl + '/api/auth/', {username, password}, httpOptions).pipe(
+      map(user => {
+        if (user && user.token){
+          localStorage.setItem("currentUser", JSON.stringify(user));
+        }
+        return user;
+      })
+    );
+  }
+
+  logout(){
+    localStorage.removeItem('currentUser');
+  }
 
   // Admin GET & POST service
   getAdmin(): Observable<any> {
-    return this.http.get(APIUrl + '/newadmin/');
+    return this.http.get(this.APIUrl + '/newadmin/');
   }
 
   addAdmin(name: string, email: string, password: string): Observable<any> {
-    return this.http.post(APIUrl + '/newadmin/', { name, email, password }, httpOptions);
+    return this.http.post(
+      this.APIUrl + '/newadmin/',
+      { name, email, password },
+      httpOptions
+    );
   }
 
   updateAdmin(item:any){
@@ -37,19 +58,20 @@ export class SharedService {
 
   // Clerk GET & POST service
   getClerks(): Observable<any> {
-    return this.http.get(APIUrl + '/clerks/');
+    return this.http.get(this.APIUrl + '/clerks/');
   }
-
+  
+  
   registerClerk( name: string, email: string, password: string): Observable<any> {
-    return this.http.post(APIUrl + '/clerks/', { name, email, password }, httpOptions);
+    return this.http.post(this.APIUrl + '/clerks/', { name, email, password }, httpOptions);
   }
 
   updateClerk(item:any){
-    return this.http.put(APIUrl + '/clerks/<int:id>', item);
+    return this.http.put(this.APIUrl + '/clerks/<int:id>', item);
   }
 
   removeClerk(item: any){
-    return this.http.delete(APIUrl + '/clerks/' + item);
+    return this.http.delete(this.APIUrl + '/clerks/' + item);
   }
 
 
@@ -57,7 +79,7 @@ export class SharedService {
   
   // Product GET & POST service
   getProductsList(): Observable<any[]> {
-    return this.http.get<any[]>(APIUrl + '/products/');
+    return this.http.get<any[]>(this.APIUrl + '/products/');
   }
 
   addNewProduct(
@@ -70,7 +92,7 @@ export class SharedService {
     selling_price: number,
     date_received: Date
   ) {
-    return this.http.post(APIUrl + '/products/', {
+    return this.http.post(this.APIUrl + '/products/', {
       product_name,
       category,
       status,
@@ -81,6 +103,7 @@ export class SharedService {
       date_received
     }, httpOptions);
   }
+
 
   // updateProductList(
   //   product_name: string,
@@ -104,16 +127,60 @@ export class SharedService {
   //   }
 
     updateProduct(item:any){
-      return this.http.put(APIUrl + '/products/<int:id>', item);
+      return this.http.put(this.APIUrl + '/products/<int:id>', item);
+
     }
 
 
     deleteProduct(item: any){
-      return this.http.delete(APIUrl + '/products/' + item);
+      return this.http.delete(this.APIUrl + '/products/' + item);
     } 
 
   // End of product API
+  
+  
+  
+  //Defectivegoods API method
+  getDefectiveGoodsList(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + '/defective/');
+  }
+  //  name, quantity, category
+  addNewDefectiveGood(
+    goodname:string, quantity:number, category:string
+  ) {
+    return this.http.post(this.APIUrl + '/defective/', {
+      goodname,quantity,category
+    });
+  }
 
+  getRequests(): Observable<any[]> {
+    return this.http.get<any[]>(this.APIUrl + '/requests/');
+  }
+  //  name, quantity, category
+  addNewRequest(
+    ordered_product:string, quantity:number, category:string
+  ) {
+    return this.http.post(this.APIUrl + '/requests/', {
+      ordered_product,quantity,category
+    });
+  }
+
+
+  // createOrder(val:any) {
+  //   return this.http.post(this.APIUrl + '/orders/', val);
+  // }
+
+  // updateOrder(val:any) {
+  //   return this.http.put(this.APIUrl + '/orders/', val);
+  // }
+
+  // deleteOrder(val:any) {
+  //   return this.http.delete(this.APIUrl + '/orders/' + val);
+  // }
+
+  // getAllOrders():Observable<any[]> {
+  //   return this.http.get<any[]>(this.APIUrl + '/orders/');
+  // }
 
 
 
@@ -139,4 +206,9 @@ export class SharedService {
   }
 
 
+  // getDefectiveProducts():Observable<any[]> {
+  //   return this.http.get<any[]>(this.APIUrl + '/defective/');
+  // }
+
+ // authentication
 }

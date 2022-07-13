@@ -29,6 +29,7 @@ import { UpdateProductComponent } from './components/products/update-product/upd
 import { UpdateDefectiveComponent } from './components/defective-goods/update-defective/update-defective.component';
 import { UpdateClerkComponent } from './components/clerk/update-clerk/update-clerk.component';
 import { UpdateUserComponent } from './components/add-user/update-user/update-user.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -52,9 +53,11 @@ import { UpdateUserComponent } from './components/add-user/update-user/update-us
     AboutComponent,
     ContactComponent,
     UpdateProductComponent,
+
     UpdateDefectiveComponent,
     UpdateClerkComponent,
     UpdateUserComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
