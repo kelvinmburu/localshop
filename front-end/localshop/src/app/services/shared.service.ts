@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'; //Handle asynchronous requests and responses
-const APIUrl = 'http://127.0.0.1:8000';
+
+
+// https://localshopinventory.herokuapp.com/
+// private ApiUrl = 'https://xxxx.herokuapp.com'
+// this.ApiUrl + 'newadmin'
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
@@ -11,16 +15,17 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class SharedService {
+  private APIUrl = 'https://localshopinventory.herokuapp.com';
   constructor(private http: HttpClient) { }
 
   // Admin GET & POST service
   getAdmin(): Observable<any> {
-    return this.http.get(APIUrl + '/newadmin/');
+    return this.http.get(this.APIUrl + '/newadmin/');
   }
 
   addAdmin(name: string, email: string, password: string): Observable<any> {
     return this.http.post(
-      APIUrl + '/newadmin/',
+      this.APIUrl + '/newadmin/',
       { name, email, password },
       httpOptions
     );
@@ -28,7 +33,7 @@ export class SharedService {
 
   // Clerk GET & POST service
   getClerks(): Observable<any> {
-    return this.http.get(APIUrl + '/clerks/');
+    return this.http.get(this.APIUrl + '/clerks/');
   }
 
   registerClerk(
@@ -37,7 +42,7 @@ export class SharedService {
     password: string
   ): Observable<any> {
     return this.http.post(
-      APIUrl + '/clerks/',
+      this.APIUrl + '/clerks/',
       { name, email, password },
       httpOptions
     );
@@ -45,7 +50,7 @@ export class SharedService {
 
   // Product GET & POST service
   getProductsList(): Observable<any[]> {
-    return this.http.get<any[]>(APIUrl + '/products/');
+    return this.http.get<any[]>(this.APIUrl + '/products/');
   }
 
   addNewProduct(
@@ -58,7 +63,7 @@ export class SharedService {
     expiry_date: Date,
     date_received: Date
   ) {
-    return this.http.post(APIUrl + '/products/', {
+    return this.http.post(this.APIUrl + '/products/', {
       product_name,
       category,
       quantity,
@@ -78,7 +83,7 @@ export class SharedService {
     selling_price: number,
     expiry_date: Date,
     date_received: Date) {
-      return this.http.put(APIUrl + '/products/<int:id>', {
+      return this.http.put(this.APIUrl + '/products/<int:id>', {
       product_name,
       category,
       quantity,
@@ -95,25 +100,25 @@ export class SharedService {
   // End of product API
   //Defectivegoods API method
   getDefectiveGoodsList(): Observable<any[]> {
-    return this.http.get<any[]>(APIUrl + '/defective/');
+    return this.http.get<any[]>(this.APIUrl + '/defective/');
   }
   //  name, quantity, category
   addNewDefectiveGood(
     goodname:string, quantity:number, category:string
   ) {
-    return this.http.post(APIUrl + '/defective/', {
+    return this.http.post(this.APIUrl + '/defective/', {
       goodname,quantity,category
     });
   }
 
   getRequests(): Observable<any[]> {
-    return this.http.get<any[]>(APIUrl + '/requests/');
+    return this.http.get<any[]>(this.APIUrl + '/requests/');
   }
   //  name, quantity, category
   addNewRequest(
     ordered_product:string, quantity:number, category:string
   ) {
-    return this.http.post(APIUrl + '/requests/', {
+    return this.http.post(this.APIUrl + '/requests/', {
       ordered_product,quantity,category
     });
   }
