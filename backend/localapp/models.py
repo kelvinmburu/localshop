@@ -1,6 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+# CATEGORY = (
+#     ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
+# )
+
+# CATEGORY = [
+#     ('Electronics',('Electronics')),
+#     ('Foods',('Foods')),
+#     ('Detergents',('Detergents')),
+#     ('Kitchen-ware',('Kitchen-ware')),
+#     ('Toys',('Toys'))
+# ]
+
 
 STATUS = (
     ('1','Paid'),
@@ -35,9 +47,6 @@ class Clerk(models.Model):
 
 
 class Product(models.Model):
-    CATEGORY = (
-    ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
-)
     product_name = models.CharField(max_length=20)
     category = models.CharField(max_length=20,choices=CATEGORY,null=True)
     quantity = models.IntegerField()

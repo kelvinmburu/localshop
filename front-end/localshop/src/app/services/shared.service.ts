@@ -32,6 +32,15 @@ export class SharedService {
     return this.http.post(APIUrl + '/clerks/', { name, email, password }, httpOptions);
   }
 
+  removeClerk(item: any){
+    return this.http.delete(APIUrl + '/clerks/' + item);
+  }
+
+
+
+
+
+
 
   // Product GET & POST service
   getProductsList(): Observable<any[]> {
@@ -60,26 +69,26 @@ export class SharedService {
     });
   }
 
-  updateProductList(
-    product_name: string,
-    category: string,
-    quantity: number,
-    status: string,
-    buying_price: number,
-    selling_price: number,
-    expiry_date: Date,
-    date_received: Date) {
-      return this.http.put(APIUrl + '/products/', {
-      product_name,
-      category,
-      quantity,
-      status,
-      buying_price,
-      selling_price,
-      expiry_date,
-      date_received
-      })
-    }
+  // updateProductList(
+  //   product_name: string,
+  //   category: string,
+  //   quantity: number,
+  //   status: string,
+  //   buying_price: number,
+  //   selling_price: number,
+  //   expiry_date: Date,
+  //   date_received: Date) {
+  //     return this.http.put(APIUrl + '/products/', {
+  //     product_name,
+  //     category,
+  //     quantity,
+  //     status,
+  //     buying_price,
+  //     selling_price,
+  //     expiry_date,
+  //     date_received
+  //     })
+  //   }
 
     updateProduct(item:any){
       return this.http.put(APIUrl + '/products/<int:id>', item);
@@ -88,7 +97,7 @@ export class SharedService {
 
     deleteProduct(item: any){
       return this.http.delete(APIUrl + '/products/' + item);
-    }
+    } 
 
   // End of product API
 

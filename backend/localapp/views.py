@@ -51,7 +51,7 @@ def adminapi(request,id=0):
 
 # productsapi
 @csrf_exempt
-def productapi(request,id=0):
+def productapi(request, id=0):
     if request.method == 'GET':
         product = Product.objects.all()
         product_serializer = ProductSerializer(product,many=True)
@@ -67,7 +67,7 @@ def productapi(request,id=0):
 
     elif request.method == 'PUT':
         product_data= JSONParser().parse(request)
-        product = Product.objects.get(id=id)
+        product = Product.objects.get(id=product_data['id'])
         product_serializer = ProductSerializer(product,data=product_data)
         if product_serializer.is_valid():
             product_serializer.save() 
@@ -75,7 +75,7 @@ def productapi(request,id=0):
         return JsonResponse("Product not updated",safe=False)
 
     elif request.method == 'DELETE':
-        product = Product.objects.get(id=id)
+        product = Product.objects.get(id=pk)
         product.delete()
         return JsonResponse("product deleted successfully",safe=False)
 
