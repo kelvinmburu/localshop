@@ -28,6 +28,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
 import { UpdateDefectiveComponent } from './components/defective-goods/update-defective/update-defective.component';
 import { UpdateClerkComponent } from './components/clerk/update-clerk/update-clerk.component';
+import { UpdateUserComponent } from './components/add-user/update-user/update-user.component';
 
 
 
@@ -53,6 +54,7 @@ import { UpdateClerkComponent } from './components/clerk/update-clerk/update-cle
     UpdateProductComponent,
     UpdateDefectiveComponent,
     UpdateClerkComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,

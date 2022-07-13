@@ -22,6 +22,10 @@ export class SharedService {
     return this.http.post(APIUrl + '/newadmin/', { name, email, password }, httpOptions);
   }
 
+  updateAdmin(item:any){
+    return this.http.put(APIUrl + '/newadmin/<int:id>', item);
+  }
+
   removeAdmin(item: any){
     return this.http.delete(APIUrl + '/newadmin/' + item);
   }
@@ -50,10 +54,7 @@ export class SharedService {
 
 
 
-
-
-
-
+  
   // Product GET & POST service
   getProductsList(): Observable<any[]> {
     return this.http.get<any[]>(APIUrl + '/products/');

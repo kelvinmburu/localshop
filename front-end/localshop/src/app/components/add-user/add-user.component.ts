@@ -12,6 +12,11 @@ export class AddUserComponent implements OnInit {
 
   adminData: any;
 
+
+  pageTitle:string;
+  ActivateUpdateComponent:boolean = false; 
+  data: any; 
+
   form: any = {
     username: null,
     email: null,
@@ -48,6 +53,13 @@ export class AddUserComponent implements OnInit {
   }
 
 
+  updateClick(item:any){
+    this.data=item;
+    this.pageTitle="Update Admin Details";
+    this.ActivateUpdateComponent=true;  
+  }
+
+
   deleteClick(item:any){ 
     if (confirm("Are you sure you  want to delete this product?")){
       this.removeAdminService.removeAdmin(item.id).subscribe(data => {
@@ -55,6 +67,12 @@ export class AddUserComponent implements OnInit {
         this.refreshAdminList(); 
       });
     }
+  }
+
+
+  closeClick(){
+    this.ActivateUpdateComponent=false; 
+    this.refreshAdminList();
   }
 
 
