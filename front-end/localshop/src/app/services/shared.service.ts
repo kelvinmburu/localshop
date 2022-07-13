@@ -22,6 +22,14 @@ export class SharedService {
     return this.http.post(APIUrl + '/newadmin/', { name, email, password }, httpOptions);
   }
 
+  removeAdmin(item: any){
+    return this.http.delete(APIUrl + '/newadmin/' + item);
+  }
+
+
+
+
+
 
   // Clerk GET & POST service
   getClerks(): Observable<any> {

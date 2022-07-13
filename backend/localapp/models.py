@@ -5,14 +5,6 @@ CATEGORY = (
     ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
 )
 
-# CATEGORY = [
-#     ('Electronics',('Electronics')),
-#     ('Foods',('Foods')),
-#     ('Detergents',('Detergents')),
-#     ('Kitchen-ware',('Kitchen-ware')),
-#     ('Toys',('Toys'))
-# ]
-
 
 STATUS = (
     ('1','Paid'),
@@ -26,7 +18,7 @@ class Admin(models.Model):
     password = models.CharField(max_length=20)
     
     class Meta:
-        ordering = ('name',)
+        ordering = ('name')
 
     def __str__(self):
         return self.name
@@ -39,7 +31,7 @@ class Clerk(models.Model):
     password = models.CharField(max_length=20)
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('name')
 
     def __str__(self):
         return self.name
