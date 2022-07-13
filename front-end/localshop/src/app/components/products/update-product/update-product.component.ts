@@ -12,8 +12,9 @@ export class UpdateProductComponent implements OnInit {
 
 
   @Input() product: any;
+  id: number;
   product_name: string;
-  category: string;
+  category: string;   
   quantity: number;
   status: string;
   buying_price: number;
@@ -22,6 +23,7 @@ export class UpdateProductComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.id = this.product.id;
     this.product_name = this.product.product_name;
     this.category = this.product.category;
     this.quantity = this.product.quantity;
@@ -33,7 +35,7 @@ export class UpdateProductComponent implements OnInit {
 
 
   updateProduct(){
-    var item = {product_name: this.product_name, 
+    var item = {id: this.id, product_name: this.product_name, 
       category : this.category,
       quantity: this.quantity,
       status: this.status,

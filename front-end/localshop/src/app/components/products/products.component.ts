@@ -75,7 +75,8 @@ export class ProductsComponent implements OnInit {
       status,
       buying_price,
       selling_price,
-      expiry_date, date_received).subscribe(
+      expiry_date,
+      date_received).subscribe(
         (data) => {
           console.log(data);
         },

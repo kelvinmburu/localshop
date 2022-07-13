@@ -67,7 +67,7 @@ def productapi(request,id=0):
 
     elif request.method == 'PUT':
         product_data= JSONParser().parse(request)
-        product = Product.objects.get(id=product_data['id'])
+        product = Product.objects.get(id=id)
         product_serializer = ProductSerializer(product,data=product_data)
         if product_serializer.is_valid():
             product_serializer.save() 

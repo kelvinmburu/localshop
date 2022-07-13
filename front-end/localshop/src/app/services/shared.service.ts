@@ -19,29 +19,19 @@ export class SharedService {
   }
 
   addAdmin(name: string, email: string, password: string): Observable<any> {
-    return this.http.post(
-      APIUrl + '/newadmin/',
-      { name, email, password },
-      httpOptions
-    );
+    return this.http.post(APIUrl + '/newadmin/', { name, email, password }, httpOptions);
   }
+
 
   // Clerk GET & POST service
   getClerks(): Observable<any> {
     return this.http.get(APIUrl + '/clerks/');
   }
 
-  registerClerk(
-    name: string,
-    email: string,
-    password: string
-  ): Observable<any> {
-    return this.http.post(
-      APIUrl + '/clerks/',
-      { name, email, password },
-      httpOptions
-    );
+  registerClerk( name: string, email: string, password: string): Observable<any> {
+    return this.http.post(APIUrl + '/clerks/', { name, email, password }, httpOptions);
   }
+
 
   // Product GET & POST service
   getProductsList(): Observable<any[]> {
@@ -70,7 +60,8 @@ export class SharedService {
     });
   }
 
-  updateProductList(product_name: string,
+  updateProductList(
+    product_name: string,
     category: string,
     quantity: number,
     status: string,
@@ -78,7 +69,7 @@ export class SharedService {
     selling_price: number,
     expiry_date: Date,
     date_received: Date) {
-      return this.http.put(APIUrl + '/products/<int:id>', {
+      return this.http.put(APIUrl + '/products/', {
       product_name,
       category,
       quantity,
@@ -91,7 +82,7 @@ export class SharedService {
     }
 
     updateProduct(item:any){
-      return this.http.put(APIUrl + '/department/', item);
+      return this.http.put(APIUrl + '/products/<int:id>', item);
     }
 
 
