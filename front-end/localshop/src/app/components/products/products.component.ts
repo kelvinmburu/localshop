@@ -46,7 +46,7 @@ export class ProductsComponent implements OnInit {
 
       this.productData = data;
     });
-    setTimeout(() => { this.ngOnInit(); }, 1000);
+    // setTimeout(() => { this.ngOnInit(); }, 1000);
   }
 
   //Submit form data

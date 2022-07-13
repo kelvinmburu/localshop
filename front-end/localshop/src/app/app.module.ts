@@ -26,6 +26,7 @@ import {SharedService} from './services/shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -49,6 +50,7 @@ import { UpdateProductComponent } from './components/products/update-product/upd
     AboutComponent,
     ContactComponent,
     UpdateProductComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
