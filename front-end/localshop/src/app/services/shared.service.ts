@@ -96,115 +96,19 @@ export class SharedService {
 
 
 
-
-
   //Defectivegoods API method
   getDefectiveGoodsList(): Observable<any[]> {
     return this.http.get<any[]>(APIUrl + '/defective/');
   }
-  //  name, quantity, category
-  addNewDefectiveGood(
-    goodname:string, quantity:number, category:string
-  ) {
-    return this.http.post(APIUrl + '/defective/', {
-      goodname,quantity,category
-    });
+
+
+  addNewDefectiveGood( goodname:string, quantity:number, category:string) {
+    return this.http.post(APIUrl + '/defective/', { goodname,quantity,category });
   }
 
-  // createOrder(val:any) {
-  //   return this.http.post(this.APIUrl + '/orders/', val);
-  // }
-
-  // updateOrder(val:any) {
-  //   return this.http.put(this.APIUrl + '/orders/', val);
-  // }
-
-  // deleteOrder(val:any) {
-  //   return this.http.delete(this.APIUrl + '/orders/' + val);
-  // }
-
-  // getAllOrders():Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/orders/');
-  // }
+  deleteDefective(item: any){
+    return this.http.delete(APIUrl + '/defective/' + item);
+  }
 
 
-
-
-
-  // // Login API method
-  // loginUser(val:any) {
-  //   return this.http.post(this.APIUrl + '/login/', val);
-  // }
-
-  // // Admin API method
-  // getAdminList(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/newadmin/');
-  // }
-
-  // updateAdmin(val:any) {
-  //   return this.http.put(this.APIUrl + '/newadmin/', val);
-  // }
-
-  // deleteAdmin(val:any) {
-  //   return this.http.delete(this.APIUrl + '/newadmin/' + val);
-  // }
-
-  // getAllAdmins():Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/newadmin/');
-  // }
-
-  // updateProduct(val:any) {
-  //   return this.http.put(this.APIUrl + '/products/', val);
-  // }
-
-  // deleteProduct(val:any) {
-  //   return this.http.delete(this.APIUrl + '/products/' + val);
-  // }
-
-  // getAllProducts():Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/products/');
-  // }
-
-
-  // // Stores API method
-  // getStoresList(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/stores/');
-  // }
-
-  // createNewStore(val:any) {
-  //   return this.http.post(this.APIUrl + '/stores/', val);
-  // }
-
-  // updateStore(val:any) {
-  //   return this.http.put(this.APIUrl + '/stores/', val);
-  // }
-
-  // deleteStore(val:any) {
-  //   return this.http.delete(this.APIUrl + '/stores/' + val);
-  // }
-
-  // getAllStores():Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/stores/');
-  // }
-
-  // // Defective Goods API method
-  // getDefectiveProductsList(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/defective/');
-  // }
-
-  // addDefectiveProduct(val:any) {
-  //   return this.http.post(this.APIUrl + '/defective/', val);
-  // }
-
-  // updateDefectiveProduct(val:any) {
-  //   return this.http.put(this.APIUrl + '/defective/', val);
-  // }
-
-  // deleteDefectiveProduct(val:any) {
-  //   return this.http.delete(this.APIUrl + '/defective/' + val);
-  // }
-
-  // getDefectiveProducts():Observable<any[]> {
-  //   return this.http.get<any[]>(this.APIUrl + '/defective/');
-  // }
 }
