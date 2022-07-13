@@ -106,6 +106,19 @@ export class SharedService {
     });
   }
 
+  getRequests(): Observable<any[]> {
+    return this.http.get<any[]>(APIUrl + '/requests/');
+  }
+  //  name, quantity, category
+  addNewRequest(
+    ordered_product:string, quantity:number, category:string
+  ) {
+    return this.http.post(APIUrl + '/requests/', {
+      ordered_product,quantity,category
+    });
+  }
+
+
   // createOrder(val:any) {
   //   return this.http.post(this.APIUrl + '/orders/', val);
   // }
