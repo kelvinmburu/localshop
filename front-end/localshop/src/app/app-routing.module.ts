@@ -19,7 +19,6 @@ import { ContactComponent } from './components/contact/contact.component';
 
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
 
-
 const routes: Routes = [
   
   {path: '', component: LandingpageComponent},
