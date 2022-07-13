@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'; //Handle asynchronous requests and responses
+import { map } from 'rxjs/operators';
+
 const APIUrl = 'http://127.0.0.1:8000';
 
 const httpOptions = {
@@ -12,6 +14,23 @@ const httpOptions = {
 })
 export class SharedService {
   constructor(private http: HttpClient) { }
+
+
+  // Authentication service
+  login(username: string, password: string){
+    return this.http.post<any>(APIUrl + '/api/auth/', {username, password}, httpOptions).pipe(
+      map(user => {
+        if (user && user.token){
+          localStorage.setItem("currentUser", JSON.stringify(user));
+        }
+        return user;
+      })
+    );
+  }
+
+  logout(){
+    localStorage.removeItem('currentUser');
+  }
 
   // Admin GET & POST service
   getAdmin(): Observable<any> {
@@ -202,4 +221,7 @@ export class SharedService {
   // getDefectiveProducts():Observable<any[]> {
   //   return this.http.get<any[]>(this.APIUrl + '/defective/');
   // }
+
+ // authentication
+
 }
