@@ -39,7 +39,7 @@ export class DefectiveGoodsComponent implements OnInit {
       console.log(data);
       this.defectiveGoodsData= data;
     });
-    setTimeout(() => { this.ngOnInit(); }, 1000);
+    // setTimeout(() => { this.ngOnInit(); }, 1000);
   }
 
  
