@@ -1,11 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+CATEGORY = (
+    ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
+)
+
 
 STATUS = (
-    ('Paid','Paid'),
-    ('Unpaid','Unpaid'),
-
+    ('1','Paid'),
+    ('2','Unpaid'),
 )
 
 
@@ -15,7 +18,7 @@ class Admin(models.Model):
     password = models.CharField(max_length=20)
     
     class Meta:
-        ordering = ('name',)
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -28,7 +31,7 @@ class Clerk(models.Model):
     password = models.CharField(max_length=20)
 
     class Meta:
-        ordering = ('name',)
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -36,9 +39,6 @@ class Clerk(models.Model):
 
 
 class Product(models.Model):
-    CATEGORY = (
-    ('Electronics','Electronics'),('Foods','Foods'),('Detergents','Detergents'),('Kitchen-ware','Kitchen-ware'),('Toys','Toys')
-)
     product_name = models.CharField(max_length=20)
     category = models.CharField(max_length=20,choices=CATEGORY,null=True)
     quantity = models.IntegerField()

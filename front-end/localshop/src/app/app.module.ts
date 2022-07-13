@@ -26,6 +26,9 @@ import {SharedService} from './services/shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
+import { UpdateDefectiveComponent } from './components/defective-goods/update-defective/update-defective.component';
+import { UpdateClerkComponent } from './components/clerk/update-clerk/update-clerk.component';
+import { UpdateUserComponent } from './components/add-user/update-user/update-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 
@@ -50,6 +53,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     AboutComponent,
     ContactComponent,
     UpdateProductComponent,
+
+    UpdateDefectiveComponent,
+    UpdateClerkComponent,
+    UpdateUserComponent,
     ProfileComponent,
   ],
   imports: [
