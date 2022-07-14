@@ -171,3 +171,34 @@ def defectivegoodsapi(request,id=0):
         defective = Defectivegood.objects.get(id=id)
         defective.delete()
         return JsonResponse("Defective good deleted successfully",safe=False)
+
+
+# requests
+@csrf_exempt
+def requestapi(request,id=0):
+    if request.method == 'GET':
+        ordered = Order.objects.all()
+        ordered_serializer = OrderSerializer(ordered,many=True)
+        return JsonResponse(ordered_serializer.data,safe=False)
+
+    elif request.method == 'POST':
+        ordered_data = JSONParser().parse(request)
+        ordered_serializer = OrderSerializer(data=ordered_data)
+        if ordered_serializer.is_valid():
+            ordered_serializer.save()
+            return JsonResponse("ordered good added successfully",safe=False)
+        return JsonResponse("ordered good not added,try again",safe=False)
+
+    elif request.method == 'PUT':
+        ordered_data= JSONParser().parse(request)
+        ordered = Order.objects.get(id=ordered_data['id'])
+        ordered_serializer = OrderSerializer(ordered,data=ordered_data)
+        if ordered_serializer.is_valid():
+            ordered_serializer.save()
+            return JsonResponse("ordered good updated successfully",safe=False)
+        return JsonResponse("ordered good  not updated",safe=False)
+
+    elif request.method == 'DELETE':
+        ordered = Order.objects.get(id=id)
+        ordered.delete()
+        return JsonResponse("ordered good deleted successfully",safe=False)

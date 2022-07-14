@@ -34,7 +34,7 @@ const routes: Routes = [
   {path: 'about', component: AboutComponent},
   {path: 'contact', component: ContactComponent},
   {path: 'update-product', component: UpdateProductComponent},
-  {path: 'request', component: RequestComponent}
+  {path: 'requests', component: RequestComponent}
 ];
 
 @NgModule({

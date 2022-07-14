@@ -22,4 +22,7 @@ urlpatterns = [
 
     path('defective/',views.defectivegoodsapi,name="defective"),
     path('defective/<int:id>',views.defectivegoodsapi,name="defective"),
+
+    path('requests/',views.requestapi,name="request"),
+    path('requests/<int:id>',views.requestapi,name="request"),
 ]

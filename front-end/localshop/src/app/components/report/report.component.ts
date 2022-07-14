@@ -31,7 +31,11 @@ export class ReportComponent implements OnInit {
   mynewdate: any;
   goodname: any;
   q:any;
-  constructor( private productService: SharedService) { 
+  mydate: string | null;
+  sp: any;
+  bp: any;
+  profit: number;
+  constructor( private productService: SharedService,private datepipe:DatePipe) { 
     Chart.register(...registerables);
   }
 
@@ -39,10 +43,10 @@ export class ReportComponent implements OnInit {
   ngOnInit(){  
     this.productService.getDefectiveGoodsList().subscribe((results) => {
       this.defective = results;
-      console.log(results);
+      // console.log(results);
       this.goodname = this.defective.map((def:{goodname:any;})=>def.goodname)
       this.q=this.defective.map((def:{quantity:any;})=>def.quantity)
-      console.log(this.goodname,this.q)
+      // console.log(this.goodname,this.q)
       this.chart = new Chart('canvas2',{
         type:'bar',
         data: {
@@ -107,12 +111,18 @@ export class ReportComponent implements OnInit {
       this.productname = this.productData.map((prod : {product_name:any;}) => prod.product_name )
       this.quantity = this.productData.map((prod : {quantity:any;}) => prod.quantity )
       // console.log(this.productname,this.quantity)
-      
+      // const decimalPipe = new DecimalPipe(locale);
       // this.category = this.productData.map((cat : {category:any})=> cat.category)
-
+      
+     this.bp = this.productData.map((cat : {buying_price:any})=> cat.buying_price)
+     this.sp = this.productData.map((cat : {selling_price:any})=> cat.selling_price)
+      // let profit = this.sp - this.bp
+     console.log(this.sp,this.bp)
+    //  buying_price,
+      // selling_price,
       // this.date_received = this.productData.map((cat : {date_received:any;}) => cat.date_received )
-      // this.mynewdate = new DatePipe('en-US').transform(this.date_received,'dd-mm-yyyy')
-      // console.log(this.quantity,this.mynewdate)
+      // this.mydate = this.datepipe.transform(this.date_received, 'MM/dd/yyyy')
+      // console.log(this.quantity,this.mydate)
 
 
       this.chart = new Chart('canvas',{

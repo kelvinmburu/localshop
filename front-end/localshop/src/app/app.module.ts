@@ -26,6 +26,7 @@ import {SharedService} from './services/shared.service';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -58,7 +59,8 @@ import { UpdateProductComponent } from './components/products/update-product/upd
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [SharedService],
+  providers: [SharedService,DatePipe],
+ 
   bootstrap: [AppComponent],
   
 })
