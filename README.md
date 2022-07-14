@@ -53,7 +53,7 @@ The app uses Angular (for front-end) and Django(back-end)
 * After cloning the repository, cd into `front-end/localshop`
 * Run `npm install` to re-install all Angular dependencies to the node modules
 * Ensure you're using Angular CLI version 14.0.4 and above. See [more here](https://angular.io/cli/update) on updating Angular CLI
-* After installing the dependencies, run `ng serve' and proceed to `http://localhost:4200` to view the platform.
+* After installing the dependencies, run `ng serve` and proceed to `http://localhost:4200` to view the platform.
 * To view functionality, open a new instance in your terminal and `cd` into `backend`.
 * Next, activate your virtual environment and activate the Django server through `python manage.py runserver'
 
