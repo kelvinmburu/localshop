@@ -40,12 +40,22 @@ The app uses Angular (for front-end) and Django(back-end)
 
 ## Project Setup and Installation
 
+### Part 1 - Django(Server)
+
 1. Proceed to this [link](https://github.com/kelvinmburu/localshop.git) and clone the repository.
 2. Extract the folder and `cd` to the folder on your terminal or your prefered IDE
 3. In the terminal, create a virtual environment: `python3 -m venv virtual` and activate it through `source virtual/bin/activate`. In the case of any name, please use `source <name>/bin/activate` or refer to this [documentation](https://stackoverflow.com/questions/31252791/flask-importerror-no-module-named-flask) for Flask virtual environment installation.
 4. Install all dependencies from the `requirements.txt` file; use `pip install -r requirements.txt` to install needed dependencies.
 6. In the terminal, and within the project folder, run `python manage.py runserver` to start the project.
 7. View the application on your browser on `http://127.0.0.1:8000`. If you have another project running on another port, use `venv run --host 0.0.0.0 --port 8001` to switch to a new port; You can use a different port number.
+
+### Part 2 - Angular(Client)
+* After cloning the repository, cd into `front-end/localshop`
+* Run `npm install` to re-install all Angular dependencies to the node modules
+* Ensure you're using Angular CLI version 14.0.4 and above. See [more here](https://angular.io/cli/update) on updating Angular CLI
+* After installing the dependencies, run `ng serve' and proceed to `http://localhost:4200` to view the platform.
+* To view functionality, open a new instance in your terminal and `cd` into `backend`.
+* Next, activate your virtual environment and activate the Django server through `python manage.py runserver'
 
 ## Behavior Driven Development (BDD)
 
