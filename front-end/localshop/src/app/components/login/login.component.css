@@ -13,3 +13,7 @@
 .form-control{
     width: 260px;
 }
+
+a {
+    text-decoration: none;
+}

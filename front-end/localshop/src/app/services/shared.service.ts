@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs'; //Handle asynchronous requests and responses
 import { map } from 'rxjs/operators';
+import { User } from '../interface/user';
+
+const TOKEN_KEY = 'AuthToken';
+const USER_KEY = 'AuthUser';
 
 const APIUrl = 'http://127.0.0.1:8000';
 
@@ -31,6 +35,54 @@ export class SharedService {
   logout(){
     localStorage.removeItem('currentUser');
   }
+
+  // Registration Component
+  signOut() {
+    window.sessionStorage.clear();
+  }
+
+  public saveToken(token: string): void {
+    window.sessionStorage.removeItem(TOKEN_KEY);
+    window.sessionStorage.setItem(TOKEN_KEY, token);
+  }
+
+  public getToken(): any {
+    return sessionStorage.getItem(TOKEN_KEY);
+  }
+
+  public saveUser(user: any): void{
+
+    window.sessionStorage.removeItem(USER_KEY)
+    window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+
+  }
+
+  public getUser(): any{
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user){
+      return JSON.parse(user);
+    }
+    return {};
+  }
+
+  // End of registration function
+
+  // Create clerks functionality
+
+  createUser(username: string, email: string, password: string, is_superuser: any) {
+    return this.http.post<User>(APIUrl + 'users/', { username, email, password, is_superuser });
+  }
+
+  createCustomer(user: any){
+    return this.http.post(APIUrl + 'customers/', {user}, httpOptions);
+  }
+
+  createCaterer(user: any){
+    return this.http.post(APIUrl+ 'caterer/', {user}, httpOptions);
+  }
+
+  // End of Create clerks functionality
+
 
   // Admin GET & POST service
   getAdmin(): Observable<any> {

@@ -1,0 +1,13 @@
+.container{
+    height: 78vh;
+    width: 50%;
+    margin-bottom: 10px;
+}
+
+.form-control{
+    width: 260px;
+}
+
+a {
+    text-decoration: none;
+}
