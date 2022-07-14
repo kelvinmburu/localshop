@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   isLoggedIn: boolean = false;
   form: any;
-  myGroup !: FormGroup;
+  myGroup: FormGroup;
 
   Roles: any = [
     { name: "Admin", value: 'admin' },
@@ -51,7 +51,7 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  changeClerk(value: any) {
+  changeClient(value: any) {
     if (value.value == 'clerk') {
       this.is_superuser = true;
     } else {

@@ -8,7 +8,7 @@
     id="register" [formGroup]="myGroup"
     style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
     <div class="mb-3">
-      <select (selectionChange)="changeClerk($event.value)" formControlName="role">
+      <select class="form-select" (selectionChange)="changeClient($event.value)" formControlName="role">
 
         <option *ngFor="let role of Roles" [value]="role">
           {{role.name}}
