@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { SharedService } from 'src/app/services/shared.service';
-
-import {Defectivegoods} from './defective';
+// import {Defectivegoods} from './defective';
 
 @Component({
   selector: 'app-defective-goods',
@@ -11,8 +10,6 @@ import {Defectivegoods} from './defective';
   providers: [SharedService]
 })
 export class DefectiveGoodsComponent implements OnInit {
-// name.q,cat
-  
   categories = [
     { id: 1, name: "Electronics" },
     { id: 2, name: "Foods" },
@@ -23,6 +20,11 @@ export class DefectiveGoodsComponent implements OnInit {
 
   defectiveGoodsData:any
 
+
+  pageTitle:string;
+  ActivateUpdateComponent:boolean = false; 
+  def: any; 
+
   form: any = {
     goodname: null, 
     quantity:null,
@@ -31,19 +33,19 @@ export class DefectiveGoodsComponent implements OnInit {
   };
   errorMessage = '';
 
-  constructor(private defectiveService: SharedService) { }
+  constructor(private defectiveService: SharedService, private deleteDefectiveService: SharedService) { }
 
 
   ngOnInit(): void {
     this.defectiveService.getDefectiveGoodsList().subscribe((data) => {
       console.log(data);
+
       this.defectiveGoodsData= data;
+
+      // this.refreshDefectiveGoodsList();
     });
     // setTimeout(() => { this.ngOnInit(); }, 1000);
   }
-
- 
-
 
 
   onSubmit(f: NgForm){
@@ -66,5 +68,36 @@ export class DefectiveGoodsComponent implements OnInit {
       }
     );
     f.reset()
+  }
+
+
+  updateClick(item:any){
+    this.def=item;
+    this.pageTitle="Update Defective Product";
+    this.ActivateUpdateComponent=true;  
+  }
+
+
+
+  deleteClick(item:any){ 
+    if (confirm("Are you sure you  want to delete this item?")){
+      this.deleteDefectiveService.deleteDefective(item.id).subscribe(data => {
+        alert(data.toString());
+        this.refreshDefectiveGoodsList(); 
+      });
+    }
+  }
+
+
+  closeClick(){
+    this.ActivateUpdateComponent=false; 
+    this.refreshDefectiveGoodsList();
+  }
+
+
+  refreshDefectiveGoodsList(){
+    this.deleteDefectiveService.getProductsList().subscribe(data =>{
+      this.defectiveGoodsData=data; 
+    });
   }
 }
