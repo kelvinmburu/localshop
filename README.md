@@ -1,8 +1,10 @@
 # Localshop
-An inventory app that can help in stock taking, generation and visualization of weekly, monthly and annual reports.
+An inventory app that helps in stock taking, generation and visualization of weekly, monthly and annual reports.
 The app uses Angular (for front-end) and Django(back-end)
 
 # Live Link
+
+ https://github.com/kelvinmburu/localshop.git
 
   
 # Django Admin Login
@@ -47,6 +49,7 @@ To access the admin dashboard, follow the instructions below:
 
 * Please ensure you're working from a Windows/MacOS/Linux
 * Install Django through `pip install django`
+
 
 ## Project Setup and Installation
 
