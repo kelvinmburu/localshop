@@ -2,16 +2,6 @@
 An inventory app that can help in stock taking, generation and visualization of weekly, monthly and annual reports.
 The app uses Angular (for front-end) and Django(back-end)
 
-# Live Link
-
-  
-# Django Admin Login
-To access the admin dashboard, follow the instructions below:
-
-* Navigate to ``
-* Username: ``
-* Password: ``
-
 ## Project Run-Through
 * A few details about this project:
 
