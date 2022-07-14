@@ -30,7 +30,11 @@ import { UpdateDefectiveComponent } from './components/defective-goods/update-de
 import { UpdateClerkComponent } from './components/clerk/update-clerk/update-clerk.component';
 import { UpdateUserComponent } from './components/add-user/update-user/update-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
 
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -58,6 +62,7 @@ import { ProfileComponent } from './components/profile/profile.component';
     UpdateClerkComponent,
     UpdateUserComponent,
     ProfileComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,6 +71,9 @@ import { ProfileComponent } from './components/profile/profile.component';
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
+    MatCardModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
   ],
   providers: [SharedService],
   bootstrap: [AppComponent],
