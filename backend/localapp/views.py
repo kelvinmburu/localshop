@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import render
-from pydantic import Json
+# from pydantic import Json
 from django.views.decorators.csrf import csrf_exempt
 from .models import *
 from .serializers import *
@@ -11,13 +11,20 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.utils import json
 from rest_framework import serializers
-# from rest_framework import viewsets
+from rest_framework.views import APIView
+
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.authtoken.models import Token
+from rest_framework.response import Response
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication, TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 
 # Create your views here.
 def HomePageView(request):
     if request.method == 'GET':
         return render(request, 'index.html', context=None)
+    
 
 @csrf_exempt
 def adminapi(request,id=0):
@@ -202,3 +209,32 @@ def requestapi(request,id=0):
         ordered = Order.objects.get(id=id)
         ordered.delete()
         return JsonResponse("ordered good deleted successfully",safe=False)
+    
+
+class CustomAuthToken(ObtainAuthToken):
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data,
+                                           context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, created = Token.objects.get_or_create(user=user)
+        return Response({
+            'token': token.key,
+            'user_id': user.pk,
+            'username': user.username,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'email': user.email
+        })
+        
+class ProfileView(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication, TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request, format=None):
+        content = {
+            'user': str(request.user),
+            'auth': str(request.auth)
+        }
+        return Response(content)

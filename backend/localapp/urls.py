@@ -1,4 +1,5 @@
-from django.urls import path, include
+from django.urls import path
+from rest_framework.urlpatterns import format_suffix_patterns
 
 from localapp import views
 from rest_framework import routers
@@ -25,4 +26,9 @@ urlpatterns = [
 
     path('requests/',views.requestapi,name="request"),
     path('requests/<int:id>',views.requestapi,name="request"),
+    
+    path('profile/', views.ProfileView.as_view()),
+    path('api/auth/', views.CustomAuthToken.as_view())
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)

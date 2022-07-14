@@ -27,6 +27,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UpdateProductComponent } from './components/products/update-product/update-product.component';
 import { DatePipe } from '@angular/common';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 
@@ -50,6 +51,7 @@ import { DatePipe } from '@angular/common';
     AboutComponent,
     ContactComponent,
     UpdateProductComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
