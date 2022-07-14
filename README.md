@@ -62,6 +62,11 @@ To access the admin dashboard, follow the instructions below:
 The BDD focuses on how a user interacts with the application.
 
 At a minimum, this is what the user should experience in the application:
+* User registration - Admin/Clerk
+* Take stocktake of projects
+* Take stocktake of defective goods
+* View all the stores in the application
+* View real-time reports generations as graphs
 
 
 ## Project Contribution or Development:
@@ -77,7 +82,8 @@ To contribute to this project, please follow the following steps:
 Please see the GitHub documentation on [Creating a Pull Request](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)
 
 ## Known Issues & bugs
-
+* Angular deployment
+* Full Front-end to Back-end communication
 
 To improve this project or fix a bug, please reach me via Email:
 * [mburuhkelvin@gmail.com](mailto:mburuhkelvin@gmail.com)
